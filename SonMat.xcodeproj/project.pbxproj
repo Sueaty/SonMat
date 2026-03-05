@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		8125506D2F5A0E9A00B5A5B7 /* PostgREST in Frameworks */ = {isa = PBXBuildFile; productRef = 8125506C2F5A0E9A00B5A5B7 /* PostgREST */; };
+		8125506F2F5A0E9A00B5A5B7 /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = 8125506E2F5A0E9A00B5A5B7 /* Storage */; };
+		812550722F5A0EEC00B5A5B7 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 812550712F5A0EEC00B5A5B7 /* FirebaseAnalytics */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		812550232F59FB2800B5A5B7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +58,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8125506F2F5A0E9A00B5A5B7 /* Storage in Frameworks */,
+				8125506D2F5A0E9A00B5A5B7 /* PostgREST in Frameworks */,
+				812550722F5A0EEC00B5A5B7 /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +121,9 @@
 			);
 			name = SonMat;
 			packageProductDependencies = (
+				8125506C2F5A0E9A00B5A5B7 /* PostgREST */,
+				8125506E2F5A0E9A00B5A5B7 /* Storage */,
+				812550712F5A0EEC00B5A5B7 /* FirebaseAnalytics */,
 			);
 			productName = SonMat;
 			productReference = 812550132F59FB2700B5A5B7 /* SonMat.app */;
@@ -195,6 +207,10 @@
 			);
 			mainGroup = 8125500A2F59FB2700B5A5B7;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				8125506B2F5A0E9A00B5A5B7 /* XCRemoteSwiftPackageReference "supabase-swift" */,
+				812550702F5A0EEC00B5A5B7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 812550142F59FB2700B5A5B7 /* Products */;
 			projectDirPath = "";
@@ -558,6 +574,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8125506B2F5A0E9A00B5A5B7 /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.1;
+			};
+		};
+		812550702F5A0EEC00B5A5B7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.10.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8125506C2F5A0E9A00B5A5B7 /* PostgREST */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8125506B2F5A0E9A00B5A5B7 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = PostgREST;
+		};
+		8125506E2F5A0E9A00B5A5B7 /* Storage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8125506B2F5A0E9A00B5A5B7 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Storage;
+		};
+		812550712F5A0EEC00B5A5B7 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 812550702F5A0EEC00B5A5B7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8125500B2F59FB2700B5A5B7 /* Project object */;
 }
