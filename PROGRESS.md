@@ -14,7 +14,7 @@
 ## Phase 1: Xcode Project Setup
 - [x] Create Xcode project (SwiftUI App lifecycle)
 - [x] Set deployment target to iOS 18.0 (set to 18.5)
-- [ ] Add Swift packages: `supabase-swift`, `firebase-ios-sdk` — **do in Xcode: File → Add Package Dependencies**
+- [x] Add Swift packages: `supabase-swift` (PostgREST, Storage), `firebase-ios-sdk` (FirebaseAnalytics)
 - [x] Set up MVVM folder structure (Models/, Persistence/, ViewModels/, Views/)
 - [x] Configure SwiftData model container (RecipeCache + StepCache)
 
@@ -72,7 +72,7 @@
 
 ## Phase 9: Firebase Analytics
 - [ ] Set up Firebase iOS project
-- [ ] Add `firebase-ios-sdk` via SPM
+- [x] Add `firebase-ios-sdk` via SPM
 - [ ] Implement: `screen_view`
 - [ ] Implement: `recipe_list_loaded`
 - [ ] Implement: `search_performed`
