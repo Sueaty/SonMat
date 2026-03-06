@@ -8,12 +8,18 @@
 import SwiftUI
 import SwiftData
 import CoreText
+import FirebaseCore
 
 @main
 struct SonMatApp: App {
+    @Environment(\.scenePhase) private var scenePhase
+
     init() {
         if let url = Bundle.main.url(forResource: "GmarketSansMedium", withExtension: "otf") {
             CTFontManagerRegisterFontsForURL(url as CFURL, .process, nil)
+        }
+        if Bundle.main.path(forResource: "GoogleService-Info", ofType: "plist") != nil {
+            FirebaseApp.configure()
         }
     }
 
@@ -36,5 +42,12 @@ struct SonMatApp: App {
             ContentView()
         }
         .modelContainer(sharedModelContainer)
+        .onChange(of: scenePhase) { _, phase in
+            switch phase {
+            case .active:   AnalyticsService.logSessionStart()
+            case .background: AnalyticsService.logSessionEnd()
+            default: break
+            }
+        }
     }
 }

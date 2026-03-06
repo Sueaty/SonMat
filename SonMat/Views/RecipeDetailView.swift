@@ -10,6 +10,7 @@ struct RecipeDetailView: View {
     let recipe: Recipe
 
     @State private var detailViewModel = RecipeDetailViewModel()
+    @State private var firedScrollDepths: Set<Int> = []
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext
 
@@ -26,6 +27,26 @@ struct RecipeDetailView: View {
         .ignoresSafeArea(edges: .top)
         .background(Color.appBg)
         .toolbar(.hidden, for: .navigationBar)
+        .onAppear {
+            AnalyticsService.logScreenView(screenName: "recipe_detail")
+            AnalyticsService.logRecipeViewed(
+                recipeID: recipe.id.uuidString,
+                title: recipe.title,
+                category: recipe.category
+            )
+        }
+        .onScrollGeometryChange(for: Double.self) { geo in
+            let scrollable = geo.contentSize.height - geo.containerSize.height
+            guard scrollable > 0 else { return 1.0 }
+            return Double(geo.contentOffset.y / scrollable)
+        } action: { _, ratio in
+            for threshold in [25, 50, 75, 100] {
+                if ratio * 100 >= Double(threshold) && !firedScrollDepths.contains(threshold) {
+                    firedScrollDepths.insert(threshold)
+                    AnalyticsService.logScrollDepth(recipeID: recipe.id.uuidString, depthPercent: threshold)
+                }
+            }
+        }
         .task {
             await detailViewModel.fetchSteps(for: recipe.id, context: modelContext)
         }

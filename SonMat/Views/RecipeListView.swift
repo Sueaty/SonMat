@@ -76,6 +76,9 @@ struct RecipeListView: View {
         }
         .background(Color.appBg)
         .navigationBarHidden(true)
+        .onAppear {
+            AnalyticsService.logScreenView(screenName: "recipe_list")
+        }
         .task {
             await viewModel.fetchRecipes(context: modelContext)
         }
@@ -100,6 +103,7 @@ private struct CategoryChipsView: View {
                 ForEach(categories, id: \.self) { category in
                     Button {
                         selectedCategory = category
+                        AnalyticsService.logCategoryFilterTapped(category: category)
                     } label: {
                         Text(category)
                             .font(.gmarket(13))

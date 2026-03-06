@@ -77,16 +77,18 @@
 - [x] Load images from Supabase Storage URLs via cache layer
 
 ## Phase 9: Firebase Analytics
-- [ ] Set up Firebase iOS project
+- [ ] **MANUAL:** Set up Firebase iOS project at console.firebase.google.com
+- [ ] **MANUAL:** Download `GoogleService-Info.plist` and add to Xcode target
 - [x] Add `firebase-ios-sdk` via SPM
-- [ ] Implement: `screen_view`
-- [ ] Implement: `recipe_list_loaded`
-- [ ] Implement: `search_performed`
-- [ ] Implement: `category_filter_tapped`
-- [ ] Implement: `recipe_viewed`
-- [ ] Implement: `recipe_scroll_depth`
-- [ ] Implement: `session_start` / `session_end`
-- [ ] Verify events in Firebase console
+- [x] Initialize `FirebaseApp.configure()` in `SonMatApp.init` (guarded: only runs if plist present)
+- [x] Implement: `screen_view` (recipe_list, recipe_detail)
+- [x] Implement: `recipe_list_loaded`
+- [x] Implement: `search_performed` (800ms debounce)
+- [x] Implement: `category_filter_tapped`
+- [x] Implement: `recipe_viewed`
+- [x] Implement: `recipe_scroll_depth` (25/50/75/100% via `onScrollGeometryChange`)
+- [x] Implement: `session_start` / `session_end` (via `scenePhase` in App)
+- [ ] **MANUAL:** Verify events in Firebase console (DebugView)
 
 ## Phase 10: Accessibility & QA
 - [ ] Korean accessibility labels on all interactive elements

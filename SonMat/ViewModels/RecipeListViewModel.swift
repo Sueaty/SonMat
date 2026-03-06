@@ -10,8 +10,27 @@ import SwiftData
 @Observable
 final class RecipeListViewModel {
     var recipes: [Recipe] = []
-    var searchText: String = ""
+    var searchText: String = "" {
+        didSet {
+            scheduleSearchAnalytics()
+        }
+    }
     var selectedCategory: String = "전체"
+
+    private var searchTask: Task<Void, Never>?
+
+    private func scheduleSearchAnalytics() {
+        searchTask?.cancel()
+        guard !searchText.isEmpty else { return }
+        let query = searchText
+        searchTask = Task {
+            try? await Task.sleep(for: .milliseconds(800))
+            guard !Task.isCancelled else { return }
+            await MainActor.run {
+                AnalyticsService.logSearchPerformed(query: query, resultCount: filteredRecipes.count)
+            }
+        }
+    }
     var isLoading: Bool = false
     var errorMessage: String? = nil
 
@@ -82,6 +101,7 @@ final class RecipeListViewModel {
                 context.insert(RecipeCache(from: recipe))
             }
             recipes = fetched
+            AnalyticsService.logRecipeListLoaded(count: fetched.count)
         } catch {
             // Fall back to SwiftData cache
             do {
