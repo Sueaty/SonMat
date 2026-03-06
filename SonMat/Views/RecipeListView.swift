@@ -4,9 +4,11 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct RecipeListView: View {
     @State private var viewModel = RecipeListViewModel()
+    @Environment(\.modelContext) private var modelContext
 
     var body: some View {
         VStack(spacing: 0) {
@@ -36,7 +38,11 @@ struct RecipeListView: View {
             )
 
             // Content
-            if viewModel.recipes.isEmpty {
+            if viewModel.isLoading {
+                Spacer()
+                ProgressView()
+                Spacer()
+            } else if viewModel.recipes.isEmpty {
                 Spacer()
                 ContentUnavailableView(
                     "아직 레시피가 없습니다",
@@ -66,18 +72,20 @@ struct RecipeListView: View {
             }
         }
         .navigationDestination(for: Recipe.self) { recipe in
-            let steps = Step.mock
-                .filter { $0.recipeID == recipe.id }
-                .sorted { $0.stepNumber < $1.stepNumber }
-            RecipeDetailView(recipe: recipe, steps: steps)
+            RecipeDetailView(recipe: recipe)
         }
         .background(Color.appBg)
         .navigationBarHidden(true)
-        .onAppear {
-            // Phase 8: replace with live Supabase fetch + SwiftData fallback
-            if viewModel.recipes.isEmpty {
-                viewModel.recipes = Recipe.mock
-            }
+        .task {
+            await viewModel.fetchRecipes(context: modelContext)
+        }
+        .alert("오류", isPresented: Binding(
+            get: { viewModel.errorMessage != nil },
+            set: { if !$0 { viewModel.errorMessage = nil } }
+        )) {
+            Button("확인") { viewModel.errorMessage = nil }
+        } message: {
+            Text(viewModel.errorMessage ?? "")
         }
     }
 }

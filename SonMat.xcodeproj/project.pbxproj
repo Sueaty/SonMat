@@ -10,6 +10,7 @@
 		8125506D2F5A0E9A00B5A5B7 /* PostgREST in Frameworks */ = {isa = PBXBuildFile; productRef = 8125506C2F5A0E9A00B5A5B7 /* PostgREST */; };
 		8125506F2F5A0E9A00B5A5B7 /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = 8125506E2F5A0E9A00B5A5B7 /* Storage */; };
 		812550722F5A0EEC00B5A5B7 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 812550712F5A0EEC00B5A5B7 /* FirebaseAnalytics */; };
+		815621FB2F5B42B7001193D3 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 815621FA2F5B42B7001193D3 /* Supabase */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				815621FB2F5B42B7001193D3 /* Supabase in Frameworks */,
 				8125506F2F5A0E9A00B5A5B7 /* Storage in Frameworks */,
 				8125506D2F5A0E9A00B5A5B7 /* PostgREST in Frameworks */,
 				812550722F5A0EEC00B5A5B7 /* FirebaseAnalytics in Frameworks */,
@@ -87,6 +89,7 @@
 				812550152F59FB2700B5A5B7 /* SonMat */,
 				812550252F59FB2800B5A5B7 /* SonMatTests */,
 				8125502F2F59FB2800B5A5B7 /* SonMatUITests */,
+				815621F92F5B42B7001193D3 /* Frameworks */,
 				812550142F59FB2700B5A5B7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -99,6 +102,13 @@
 				8125502C2F59FB2800B5A5B7 /* SonMatUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		815621F92F5B42B7001193D3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,6 +134,7 @@
 				8125506C2F5A0E9A00B5A5B7 /* PostgREST */,
 				8125506E2F5A0E9A00B5A5B7 /* Storage */,
 				812550712F5A0EEC00B5A5B7 /* FirebaseAnalytics */,
+				815621FA2F5B42B7001193D3 /* Supabase */,
 			);
 			productName = SonMat;
 			productReference = 812550132F59FB2700B5A5B7 /* SonMat.app */;
@@ -609,6 +620,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 812550702F5A0EEC00B5A5B7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalytics;
+		};
+		815621FA2F5B42B7001193D3 /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8125506B2F5A0E9A00B5A5B7 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

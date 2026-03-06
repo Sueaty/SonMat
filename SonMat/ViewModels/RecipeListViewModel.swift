@@ -5,12 +5,15 @@
 
 import Foundation
 import Observation
+import SwiftData
 
 @Observable
 final class RecipeListViewModel {
     var recipes: [Recipe] = []
     var searchText: String = ""
     var selectedCategory: String = "전체"
+    var isLoading: Bool = false
+    var errorMessage: String? = nil
 
     var categories: [String] {
         let unique = Set(recipes.map(\.category))
@@ -63,5 +66,33 @@ final class RecipeListViewModel {
 
     private func koreanContains(_ text: String, query: String) -> Bool {
         decomposeKorean(text.lowercased()).contains(decomposeKorean(query.lowercased()))
+    }
+
+    // MARK: - Data Fetching
+
+    @MainActor
+    func fetchRecipes(context: ModelContext) async {
+        isLoading = true
+        defer { isLoading = false }
+
+        do {
+            let fetched = try await SupabaseService.shared.fetchRecipes()
+            try context.delete(model: RecipeCache.self)
+            for recipe in fetched {
+                context.insert(RecipeCache(from: recipe))
+            }
+            recipes = fetched
+        } catch {
+            // Fall back to SwiftData cache
+            do {
+                let cached = try context.fetch(FetchDescriptor<RecipeCache>())
+                recipes = cached.map { $0.toRecipe() }
+                if !recipes.isEmpty {
+                    errorMessage = "네트워크 오류로 저장된 데이터를 표시합니다."
+                }
+            } catch {
+                recipes = []
+            }
+        }
     }
 }

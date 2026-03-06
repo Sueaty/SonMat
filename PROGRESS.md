@@ -67,14 +67,14 @@
 - [x] **MANUAL:** Add `SonMat/Config/SupabaseConfig.swift` to Xcode project target
 
 ## Phase 8: API Integration & SwiftData Persistence
-- [ ] Initialize `supabase-swift` client
-- [ ] Repository layer: fetch recipes from Supabase
-- [ ] Repository layer: fetch steps for a recipe
-- [ ] Replace mock data with live data in ViewModels
-- [ ] `onAppear`-triggered data fetching
-- [ ] Save fetched data to SwiftData on success
-- [ ] Display cached data + show `.alert()` on failure (Korean messages)
-- [ ] Load images from Supabase Storage URLs via cache layer
+- [x] Initialize `supabase-swift` client (`SonMat/Services/SupabaseService.swift`)
+- [x] Repository layer: fetch recipes from Supabase
+- [x] Repository layer: fetch steps for a recipe
+- [x] Replace mock data with live data in ViewModels
+- [x] `.task`-triggered data fetching
+- [x] Save fetched data to SwiftData on success
+- [x] Display cached data + show `.alert()` on failure (Korean messages)
+- [x] Load images from Supabase Storage URLs via cache layer
 
 ## Phase 9: Firebase Analytics
 - [ ] Set up Firebase iOS project

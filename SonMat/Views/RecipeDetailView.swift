@@ -4,12 +4,14 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct RecipeDetailView: View {
     let recipe: Recipe
-    let steps: [Step]
 
+    @State private var detailViewModel = RecipeDetailViewModel()
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.modelContext) private var modelContext
 
     var body: some View {
         ScrollView {
@@ -24,6 +26,17 @@ struct RecipeDetailView: View {
         .ignoresSafeArea(edges: .top)
         .background(Color.appBg)
         .toolbar(.hidden, for: .navigationBar)
+        .task {
+            await detailViewModel.fetchSteps(for: recipe.id, context: modelContext)
+        }
+        .alert("오류", isPresented: Binding(
+            get: { detailViewModel.errorMessage != nil },
+            set: { if !$0 { detailViewModel.errorMessage = nil } }
+        )) {
+            Button("확인") { detailViewModel.errorMessage = nil }
+        } message: {
+            Text(detailViewModel.errorMessage ?? "")
+        }
     }
 
     // MARK: - Hero
@@ -186,9 +199,15 @@ struct RecipeDetailView: View {
                 .fontWeight(.bold)
                 .foregroundStyle(Color.textPrimary)
 
-            VStack(spacing: 20) {
-                ForEach(steps) { step in
-                    stepRow(step)
+            if detailViewModel.isLoading {
+                ProgressView()
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 20)
+            } else {
+                VStack(spacing: 20) {
+                    ForEach(detailViewModel.steps) { step in
+                        stepRow(step)
+                    }
                 }
             }
         }
@@ -229,9 +248,6 @@ struct RecipeDetailView: View {
 
 #Preview {
     NavigationStack {
-        RecipeDetailView(
-            recipe: Recipe.mock[0],
-            steps: Step.mock.filter { $0.recipeID == Recipe.mock[0].id }.sorted { $0.stepNumber < $1.stepNumber }
-        )
+        RecipeDetailView(recipe: Recipe.mock[0])
     }
 }
