@@ -20,11 +20,9 @@
 import Foundation
 
 enum SupabaseConfig {
-    // TODO: Replace with your Supabase project URL
     // Example: "https://xyzcompany.supabase.co"
     static let supabaseURL = "https://hhnnynrwtppntjwzyhyt.supabase.co"
 
-    // TODO: Replace with your Supabase anon (public) key
     // Example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
     static let supabaseAnonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhobm55bnJ3dHBwbnRqd3p5aHl0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI4MTQ2MDQsImV4cCI6MjA4ODM5MDYwNH0.y-oM1gFnVgQseb6MTvtBhrlLbV271uamvzFI-xKLoR0"
 }
