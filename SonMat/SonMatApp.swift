@@ -7,9 +7,16 @@
 
 import SwiftUI
 import SwiftData
+import CoreText
 
 @main
 struct SonMatApp: App {
+    init() {
+        if let url = Bundle.main.url(forResource: "GmarketSansMedium", withExtension: "otf") {
+            CTFontManagerRegisterFontsForURL(url as CFURL, .process, nil)
+        }
+    }
+
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             RecipeCache.self,

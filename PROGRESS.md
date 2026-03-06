@@ -26,10 +26,11 @@
 - [x] Set up `NavigationStack` navigation shell
 
 ## Phase 3: Home Screen UI (mock data)
-- [ ] Recipe card view (thumbnail, title, category chip, cook time)
-- [ ] `NSCache`-based image cache layer
-- [ ] `ContentUnavailableView` welcoming empty state (Korean)
-- [ ] Recipe list screen wired to mock data
+- [x] Recipe card view (thumbnail, title, category chip, cook time)
+- [x] `NSCache`-based image cache layer
+- [x] `ContentUnavailableView` welcoming empty state (Korean)
+- [x] Recipe list screen wired to mock data
+- [x] GmarketSans Medium font bundled and registered via CoreText
 
 ## Phase 4: Search
 - [ ] `.searchable` modifier on home screen
