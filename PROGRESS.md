@@ -45,12 +45,12 @@
 - [x] Category filter + search work together
 
 ## Phase 6: Recipe Detail Screen (mock data)
-- [ ] Hero image
-- [ ] Title, category, prep time, cook time, servings
-- [ ] Description
-- [ ] Ingredients list
-- [ ] Numbered steps with optional per-step images
-- [ ] `NavigationLink` from recipe card to detail
+- [x] Hero image
+- [x] Title, category, prep time, cook time, servings
+- [x] Description
+- [x] Ingredients list
+- [x] Numbered steps with optional per-step images
+- [x] `NavigationLink` from recipe card to detail
 
 ## Phase 7: Supabase Backend Setup
 - [ ] Create Supabase project

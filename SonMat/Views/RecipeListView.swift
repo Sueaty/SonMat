@@ -56,11 +56,20 @@ struct RecipeListView: View {
                 ScrollView {
                     LazyVStack(spacing: 0) {
                         ForEach(viewModel.filteredRecipes) { recipe in
-                            RecipeCardView(recipe: recipe)
+                            NavigationLink(value: recipe) {
+                                RecipeCardView(recipe: recipe)
+                            }
+                            .buttonStyle(.plain)
                         }
                     }
                 }
             }
+        }
+        .navigationDestination(for: Recipe.self) { recipe in
+            let steps = Step.mock
+                .filter { $0.recipeID == recipe.id }
+                .sorted { $0.stepNumber < $1.stepNumber }
+            RecipeDetailView(recipe: recipe, steps: steps)
         }
         .background(Color.appBg)
         .navigationBarHidden(true)
