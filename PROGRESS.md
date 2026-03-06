@@ -39,10 +39,10 @@
 - [x] "검색 결과 없음" no-results state
 
 ## Phase 5: Category Filter Chips
-- [ ] Horizontal `ScrollView` chip row
-- [ ] "전체" chip always first, selected by default
-- [ ] Dynamically populate chips from data categories
-- [ ] Category filter + search work together
+- [x] Horizontal `ScrollView` chip row
+- [x] "전체" chip always first, selected by default
+- [x] Dynamically populate chips from data categories
+- [x] Category filter + search work together
 
 ## Phase 6: Recipe Detail Screen (mock data)
 - [ ] Hero image

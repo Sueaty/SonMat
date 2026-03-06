@@ -30,7 +30,10 @@ struct RecipeListView: View {
                 .padding(.top, 10)
                 .padding(.bottom, 8)
 
-            // Phase 5: category chips go here
+            CategoryChipsView(
+                categories: viewModel.categories,
+                selectedCategory: $viewModel.selectedCategory
+            )
 
             // Content
             if viewModel.recipes.isEmpty {
@@ -67,6 +70,36 @@ struct RecipeListView: View {
                 viewModel.recipes = Recipe.mock
             }
         }
+    }
+}
+
+private struct CategoryChipsView: View {
+    let categories: [String]
+    @Binding var selectedCategory: String
+
+    var body: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 8) {
+                ForEach(categories, id: \.self) { category in
+                    Button {
+                        selectedCategory = category
+                    } label: {
+                        Text(category)
+                            .font(.gmarket(13))
+                            .foregroundStyle(selectedCategory == category ? Color.white : Color.textPrimary)
+                            .padding(.vertical, 7)
+                            .padding(.horizontal, 16)
+                            .background(
+                                Capsule()
+                                    .fill(selectedCategory == category ? Color.textPrimary : Color.chipBg)
+                            )
+                    }
+                    .buttonStyle(.plain)
+                }
+            }
+            .padding(.horizontal, 20)
+        }
+        .padding(.bottom, 12)
     }
 }
 
