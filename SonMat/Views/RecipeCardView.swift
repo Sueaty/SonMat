@@ -51,6 +51,9 @@ struct RecipeCardView: View {
 
             Spacer(minLength: 0)
         }
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel("\(recipe.title), \(recipe.category), 총 \(recipe.prepTime + recipe.cookTime)분")
+        .accessibilityHint("레시피 상세 보기")
         .padding(.horizontal, 20)
         .padding(.vertical, 14)
         .overlay(alignment: .bottom) {

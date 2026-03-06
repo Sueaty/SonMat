@@ -91,11 +91,11 @@
 - [ ] **MANUAL:** Verify events in Firebase console (DebugView)
 
 ## Phase 10: Accessibility & QA
-- [ ] Korean accessibility labels on all interactive elements
-- [ ] VoiceOver audit
-- [ ] Dynamic Type text scaling
-- [ ] Color contrast review (WCAG AA)
-- [ ] Test on multiple screen sizes (SE → Pro Max)
+- [x] Korean accessibility labels on all interactive elements
+- [ ] VoiceOver audit — manual: Settings > Accessibility > VoiceOver on device
+- [x] Dynamic Type text scaling
+- [x] Color contrast review (WCAG AA) — textTertiary updated #9E9E9E→#6E6E6E (4.9:1); accent white text 3.78:1 accepted (design trade-off)
+- [ ] Test on multiple screen sizes (SE → Pro Max) — manual: test on Simulator SE 3rd gen, 16, 16 Plus
 
 ## Phase 11: Polish & App Store Submission
 - [ ] Final UI polish and edge case handling

@@ -25,12 +25,22 @@ extension Color {
     static let appBg        = Color(hex: "FAFAF8")
     static let textPrimary  = Color(hex: "1A1A1A")
     static let textSecondary = Color(hex: "6B6B6B")
-    static let textTertiary = Color(hex: "9E9E9E")
+    static let textTertiary = Color(hex: "6E6E6E")
     static let chipBg       = Color(hex: "F0EFEC")
 }
 
 extension Font {
     static func gmarket(_ size: CGFloat) -> Font {
-        .custom("GmarketSansMedium", size: size)
+        let style: Font.TextStyle
+        switch size {
+        case ..<12: style = .caption2
+        case ..<14: style = .caption
+        case ..<16: style = .subheadline
+        case ..<18: style = .body
+        case ..<22: style = .title3
+        case ..<26: style = .title2
+        default:    style = .largeTitle
+        }
+        return .custom("GmarketSansMedium", size: size, relativeTo: style)
     }
 }

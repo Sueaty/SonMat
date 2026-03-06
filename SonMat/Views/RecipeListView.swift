@@ -41,6 +41,7 @@ struct RecipeListView: View {
             if viewModel.isLoading {
                 Spacer()
                 ProgressView()
+                    .accessibilityLabel("레시피 불러오는 중")
                 Spacer()
             } else if viewModel.recipes.isEmpty {
                 Spacer()
@@ -116,6 +117,8 @@ private struct CategoryChipsView: View {
                             )
                     }
                     .buttonStyle(.plain)
+                    .accessibilityLabel(category)
+                    .accessibilityAddTraits(selectedCategory == category ? .isSelected : [])
                 }
             }
             .padding(.horizontal, 20)

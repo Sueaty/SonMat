@@ -71,6 +71,7 @@ struct RecipeDetailView: View {
             .frame(maxWidth: .infinity)
             .frame(height: 300)
             .clipped()
+            .accessibilityLabel("\(recipe.title) 요리 사진")
 
             // Gradient overlay
             LinearGradient(
@@ -84,6 +85,7 @@ struct RecipeDetailView: View {
                 endPoint: .bottom
             )
             .frame(height: 300)
+            .accessibilityHidden(true)
 
             // Category + title overlay
             VStack(alignment: .leading, spacing: 8) {
@@ -105,6 +107,7 @@ struct RecipeDetailView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.horizontal, 20)
             .padding(.bottom, 20)
+            .accessibilityHidden(true)
         }
         .frame(height: 300)
         .overlay(alignment: .topLeading) {
@@ -123,6 +126,7 @@ struct RecipeDetailView: View {
                 .background(.ultraThinMaterial)
                 .clipShape(Circle())
         }
+        .accessibilityLabel("뒤로")
         .padding(.leading, 12)
         .padding(.top, 56)
     }
@@ -157,6 +161,8 @@ struct RecipeDetailView: View {
                 .fontWeight(.bold)
                 .foregroundStyle(Color.textPrimary)
         }
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel("\(label), \(value)")
     }
 
     // MARK: - Description
@@ -179,6 +185,7 @@ struct RecipeDetailView: View {
                 .font(.gmarket(18))
                 .fontWeight(.bold)
                 .foregroundStyle(Color.textPrimary)
+                .accessibilityAddTraits(.isHeader)
 
             VStack(spacing: 0) {
                 ForEach(Array(recipe.ingredients.enumerated()), id: \.offset) { index, ingredient in
@@ -186,6 +193,7 @@ struct RecipeDetailView: View {
                         Circle()
                             .fill(Color.accent)
                             .frame(width: 6, height: 6)
+                            .accessibilityHidden(true)
 
                         Text(ingredient)
                             .font(.gmarket(14))
@@ -219,11 +227,13 @@ struct RecipeDetailView: View {
                 .font(.gmarket(18))
                 .fontWeight(.bold)
                 .foregroundStyle(Color.textPrimary)
+                .accessibilityAddTraits(.isHeader)
 
             if detailViewModel.isLoading {
                 ProgressView()
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 20)
+                    .accessibilityLabel("조리 방법 불러오는 중")
             } else {
                 VStack(spacing: 20) {
                     ForEach(detailViewModel.steps) { step in
@@ -247,6 +257,7 @@ struct RecipeDetailView: View {
                     .frame(width: 28, height: 28)
                     .background(Color.accent)
                     .clipShape(Circle())
+                    .accessibilityHidden(true)
 
                 Text(step.instruction)
                     .font(.gmarket(14))
@@ -254,6 +265,7 @@ struct RecipeDetailView: View {
                     .lineSpacing(5.8)
                     .padding(.top, 3)
                     .frame(maxWidth: .infinity, alignment: .leading)
+                    .accessibilityLabel("\(step.stepNumber)단계: \(step.instruction)")
             }
 
             if let imageURLString = step.imageURL, let url = URL(string: imageURLString) {
@@ -262,6 +274,7 @@ struct RecipeDetailView: View {
                     .frame(height: 180)
                     .clipShape(RoundedRectangle(cornerRadius: 14))
                     .padding(.leading, 40)
+                    .accessibilityLabel("\(step.stepNumber)단계 조리 사진")
             }
         }
     }
