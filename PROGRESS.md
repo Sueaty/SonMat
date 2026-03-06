@@ -53,13 +53,18 @@
 - [x] `NavigationLink` from recipe card to detail
 
 ## Phase 7: Supabase Backend Setup
-- [ ] Create Supabase project
-- [ ] Define `recipes` table with schema
-- [ ] Define `steps` table with FK to recipes
-- [ ] Create `recipe-images` storage bucket (public read)
-- [ ] Create `step-images` storage bucket (public read)
-- [ ] Configure RLS (public read, admin write)
-- [ ] Seed 5–10 initial recipes with steps and images
+- [x] Write `supabase/migrations/001_create_tables.sql` — recipes + steps schema
+- [x] Write `supabase/migrations/002_rls_policies.sql` — public read, authenticated write
+- [x] Write `supabase/seed.sql` — 5 Korean recipes (된장찌개, 김치볶음밥, 잡채, 파전, 비빔밥)
+- [x] Write `SonMat/Config/SupabaseConfig.swift` — placeholder config (fill in credentials after setup)
+- [x] **MANUAL:** Create Supabase project at app.supabase.com (region: Northeast Asia - Seoul)
+- [x] **MANUAL:** SQL Editor → run `001_create_tables.sql`
+- [x] **MANUAL:** SQL Editor → run `002_rls_policies.sql`
+- [x] **MANUAL:** SQL Editor → run `seed.sql`
+- [x] **MANUAL:** Storage → create `recipe-images` bucket (public read)
+- [x] **MANUAL:** Storage → create `step-images` bucket (public read)
+- [x] **MANUAL:** Settings → API → fill in `SupabaseConfig.swift` with project URL + anon key
+- [x] **MANUAL:** Add `SonMat/Config/SupabaseConfig.swift` to Xcode project target
 
 ## Phase 8: API Integration & SwiftData Persistence
 - [ ] Initialize `supabase-swift` client
