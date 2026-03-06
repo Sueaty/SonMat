@@ -33,10 +33,10 @@
 - [x] GmarketSans Medium font bundled and registered via CoreText
 
 ## Phase 4: Search
-- [ ] `.searchable` modifier on home screen
-- [ ] Real-time Korean text filtering
-- [ ] Korean partial syllable/jamo matching
-- [ ] "검색 결과 없음" no-results state
+- [x] `.searchable` modifier on home screen
+- [x] Real-time Korean text filtering
+- [x] Korean partial syllable/jamo matching
+- [x] "검색 결과 없음" no-results state
 
 ## Phase 5: Category Filter Chips
 - [ ] Horizontal `ScrollView` chip row

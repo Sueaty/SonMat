@@ -25,7 +25,11 @@ struct RecipeListView: View {
             .padding(.top, 6)
             .padding(.bottom, 4)
 
-            // Phase 4: search bar goes here
+            SearchBarView(text: $viewModel.searchText)
+                .padding(.horizontal, 20)
+                .padding(.top, 10)
+                .padding(.bottom, 8)
+
             // Phase 5: category chips go here
 
             // Content
