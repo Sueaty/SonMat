@@ -1,0 +1,24 @@
+//
+//  SupabaseConfig.swift
+//  SonMat
+//
+//  HOW TO SET UP:
+//  1. Copy this file and rename it to SupabaseConfig.swift (no .example)
+//  2. Go to app.supabase.com → Settings → API
+//  3. Fill in your Project URL and anon public key below
+//
+//  SECURITY NOTE:
+//  SupabaseConfig.swift is listed in .gitignore and will NOT be committed.
+//  The anon key is safe to ship in the app bundle — RLS policies prevent
+//  viewers from writing or deleting data. Never put the service_role key here.
+//
+
+import Foundation
+
+enum SupabaseConfig {
+    // Example: "https://xyzcompany.supabase.co"
+    static let supabaseURL = "YOUR_SUPABASE_PROJECT_URL"
+
+    // Example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+    static let supabaseAnonKey = "YOUR_SUPABASE_ANON_KEY"
+}
