@@ -205,7 +205,7 @@ struct RecipeDetailView: View {
 
                     if index < recipe.ingredients.count - 1 {
                         Rectangle()
-                            .fill(Color(hex: "EEEDE9"))
+                            .fill(Color.ingredientDivider)
                             .frame(height: 0.5)
                     }
                 }

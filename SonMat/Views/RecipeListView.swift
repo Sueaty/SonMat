@@ -108,7 +108,7 @@ private struct CategoryChipsView: View {
                     } label: {
                         Text(category)
                             .font(.gmarket(13))
-                            .foregroundStyle(selectedCategory == category ? Color.white : Color.textPrimary)
+                            .foregroundStyle(selectedCategory == category ? Color.chipSelectedText : Color.textPrimary)
                             .padding(.vertical, 7)
                             .padding(.horizontal, 16)
                             .background(
