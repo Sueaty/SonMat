@@ -65,7 +65,7 @@ struct InfoView: View {
                             title: "개인정보 처리방침",
                             subtitle: "개인정보 보호 및 처리에 관한 안내"
                         ) {
-                            if let url = URL(string: "https://sueaty.github.io/sonmat-privacy") {
+                            if let url = URL(string: "https://sueaty.github.io/SonMat/privacy/") {
                                 openURL(url)
                             }
                         }

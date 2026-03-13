@@ -104,9 +104,12 @@
 - [ ] Performance profiling
 
 ## Phase 12: App Store Submission
-- [ ] Create and host Korean privacy policy page at https://sueaty.github.io/sonmat-privacy (GitHub Pages)
-- [ ] Prepare Korean App Store listing (title, description, screenshots, keywords, privacy policy URL)
-- [ ] Submit to App Store
+- [x] Create Korean privacy policy HTML — `appstore/privacy-policy/index.html`
+- [x] Prepare Korean App Store listing draft — `appstore/listing.md`
+- [ ] **MANUAL:** Enable GitHub Pages on SonMat repo (Settings → Pages → Source: Deploy from branch `main`, folder `/docs`) → verify https://sueaty.github.io/SonMat/privacy/ loads
+- [ ] **MANUAL:** Prepare App Store screenshots (see `appstore/listing.md` for sizes and order)
+- [ ] **MANUAL:** App Store Connect → create new app, fill in listing from `appstore/listing.md`, upload screenshots and build
+- [ ] **MANUAL:** Submit to App Store review
 
 ---
 
