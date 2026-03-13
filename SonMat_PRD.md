@@ -345,7 +345,7 @@ The app must comply with Korea's Personal Information Protection Act (PIPA) and 
 
 | Requirement | Implementation |
 |---|---|
-| Privacy Policy | A Korean-language privacy policy hosted as a web page (e.g., on GitHub Pages or Notion). Accessible from the app's Info screen via a tappable link. |
+| Privacy Policy | A Korean-language privacy policy hosted at **https://sueaty.github.io/sonmat-privacy** (GitHub Pages). Accessible from the app's Info screen via a tappable link. |
 | Policy Content | Discloses: (1) anonymous usage data is collected (screen views, search queries, tap events), (2) purpose is improving the recipe experience, (3) no personally identifiable information (PII) is collected, (4) data is processed via Firebase/Google. |
 | App Store | The privacy policy URL is required for App Store submission. |
 | ATT / IDFA | Firebase Analytics does not use IDFA by default, so App Tracking Transparency (ATT) prompts are not required for MVP. Review if additional tracking is added later. |

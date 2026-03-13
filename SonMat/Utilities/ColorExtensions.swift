@@ -53,7 +53,9 @@ extension Color {
     // MARK: Design system colors
 
     static let accent            = Color(light: "D4603A", dark: "E07550")
+    static let accentDark        = Color(light: "B8482A", dark: "C45A35")
     static let accentLight       = Color(light: "FDF0EB", dark: "3D2318")
+    static let cardBg            = Color(light: "FFFFFF", dark: "2A2926")
     static let appBg             = Color(light: "FAFAF8", dark: "1C1B19")
     static let textPrimary       = Color(light: "1A1A1A", dark: "F2EDE8")
     static let textSecondary     = Color(light: "6B6B6B", dark: "A8A8A8")

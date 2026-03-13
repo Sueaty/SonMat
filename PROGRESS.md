@@ -98,13 +98,13 @@
 - [ ] Test on multiple screen sizes (SE → Pro Max) — manual: test on Simulator SE 3rd gen, 16, 16 Plus
 
 ## Phase 11: Polish
-- [ ] Wrap `ContentView` in `TabView` with two tabs: "홈" (`RecipeListView`) and "정보" (`InfoView`)
-- [ ] Build `InfoView` — app icon, version, privacy policy link, contact info
+- [x] Wrap `ContentView` in `TabView` with two tabs: "홈" (`RecipeListView`) and "정보" (`InfoView`)
+- [x] Build `InfoView` — app icon, version, privacy policy link, contact info
 - [ ] Final UI polish and edge case handling
 - [ ] Performance profiling
 
 ## Phase 12: App Store Submission
-- [ ] Create and host Korean privacy policy page
+- [ ] Create and host Korean privacy policy page at https://sueaty.github.io/sonmat-privacy (GitHub Pages)
 - [ ] Prepare Korean App Store listing (title, description, screenshots, keywords, privacy policy URL)
 - [ ] Submit to App Store
 

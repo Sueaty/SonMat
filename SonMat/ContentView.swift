@@ -11,9 +11,24 @@ struct ContentView: View {
 
     var body: some View {
         ZStack {
-            NavigationStack {
-                RecipeListView(viewModel: viewModel)
+            TabView {
+                NavigationStack {
+                    RecipeListView(viewModel: viewModel)
+                }
+                .tabItem {
+                    Label("홈", systemImage: "house.fill")
+                }
+                .accessibilityLabel("홈 탭")
+
+                NavigationStack {
+                    InfoView()
+                }
+                .tabItem {
+                    Label("정보", systemImage: "info.circle.fill")
+                }
+                .accessibilityLabel("정보 탭")
             }
+            .tint(.accent)
             .opacity(isDataLoaded ? 1 : 0)
 
             if !isDataLoaded {
