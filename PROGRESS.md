@@ -23,7 +23,7 @@
 - [x] Define `Step` struct (Codable + CodingKeys)
 - [x] Create SwiftData `@Model` classes for `Recipe` and `Step` (RecipeCache, StepCache)
 - [x] Create mock/sample data (3 Korean recipes with steps)
-- [x] Set up `NavigationStack` navigation shell
+- [x] Set up `NavigationStack` navigation shell (TabView with Info tab deferred to Phase 11)
 
 ## Phase 3: Home Screen UI (mock data)
 - [x] Recipe card view (thumbnail, title, category chip, cook time)
@@ -97,12 +97,15 @@
 - [x] Color contrast review (WCAG AA) — textTertiary updated #9E9E9E→#6E6E6E (4.9:1); accent white text 3.78:1 accepted (design trade-off)
 - [ ] Test on multiple screen sizes (SE → Pro Max) — manual: test on Simulator SE 3rd gen, 16, 16 Plus
 
-## Phase 11: Polish & App Store Submission
+## Phase 11: Polish
+- [ ] Wrap `ContentView` in `TabView` with two tabs: "홈" (`RecipeListView`) and "정보" (`InfoView`)
+- [ ] Build `InfoView` — app icon, version, privacy policy link, contact info
 - [ ] Final UI polish and edge case handling
 - [ ] Performance profiling
+
+## Phase 12: App Store Submission
 - [ ] Create and host Korean privacy policy page
-- [ ] Build Info screen with privacy policy link
-- [ ] Prepare Korean App Store listing
+- [ ] Prepare Korean App Store listing (title, description, screenshots, keywords, privacy policy URL)
 - [ ] Submit to App Store
 
 ---

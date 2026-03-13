@@ -121,12 +121,14 @@ GmarketSans is a Korean typeface that reinforces the app's identity. It must be 
 
 ### 6.1 Screen Overview
 
-| Screen | Description | Key Elements |
-|---|---|---|
-| Recipe List (Home) | Scrollable list of all recipes. Displays thumbnail, title, category tag, and estimated cook time. Horizontal category filter chips below the search bar. | Search bar, category chips, recipe cards, pull-to-refresh, empty state |
-| Search Results | Filtered view of the recipe list based on user's search query. Filters in real-time as user types in Korean. | Search input, filtered cards, "검색 결과 없음" state |
-| Recipe Detail | Full recipe view with hero image, description, ingredients list, step-by-step instructions with per-step images, and metadata. | Hero image, ingredient list, numbered steps with images, prep/cook time, servings |
-| Info / Privacy | Simple info screen with a link to the hosted Korean-language privacy policy. | App version, privacy policy link |
+The app uses a **2-tab bottom navigation bar** (`TabView`). Tab 1 ("홈") contains the Recipe List and Recipe Detail screens via a `NavigationStack`. Tab 2 ("정보") contains the Info / Privacy screen.
+
+| Screen | Tab | Description | Key Elements |
+|---|---|---|---|
+| Recipe List (Home) | 홈 (Tab 1) | Scrollable list of all recipes. Displays thumbnail, title, category tag, and estimated cook time. Horizontal category filter chips below the search bar. | Search bar, category chips, recipe cards, empty state |
+| Search Results | 홈 (Tab 1) | Filtered view of the recipe list based on user's search query. Filters in real-time as user types in Korean. | Search input, filtered cards, "검색 결과 없음" state |
+| Recipe Detail | 홈 (Tab 1) | Full recipe view with hero image, description, ingredients list, step-by-step instructions with per-step images, and metadata. | Hero image, ingredient list, numbered steps with images, prep/cook time, servings |
+| Info / Privacy | 정보 (Tab 2) | Simple info screen with app icon, version, and a link to the hosted Korean-language privacy policy. | App icon, app version, privacy policy link |
 
 ### 6.2 Recipe List (Home Screen)
 
@@ -273,7 +275,7 @@ No viewer authentication is required. The app uses the **Supabase anonymous (ano
 | Networking / Backend SDK | supabase-swift | Official Supabase SDK for Swift. Handles REST queries, auth, real-time subscriptions, and storage access. |
 | Image Caching | NSCache-based custom cache | Lightweight in-memory image cache wrapping async image loading. Prevents re-downloading images on scroll and screen transitions. |
 | Local Persistence | SwiftData | Apple's modern persistence framework (iOS 17+). Stores fetched recipes and steps locally so the app displays last-fetched data when offline. |
-| Navigation | NavigationStack | SwiftUI's native navigation system with `NavigationStack` and `NavigationLink`. Supports programmatic navigation and deep linking. |
+| Navigation | TabView + NavigationStack | Bottom tab bar (`TabView`) with two tabs: "홈" (Home) and "정보" (Info). Each tab wraps a `NavigationStack` for drill-down navigation. |
 | Backend / Database | Supabase (PostgreSQL) | Open-source Firebase alternative. Hosted Postgres with REST API, auth, and real-time subscriptions. |
 | Image Storage | Supabase Storage | S3-compatible object storage integrated with Supabase. CDN for recipe and step images. |
 | Analytics | Firebase Analytics | Analytics via the `firebase-ios-sdk` Swift package. Free with generous limits. |
@@ -285,7 +287,7 @@ No viewer authentication is required. The app uses the **Supabase anonymous (ano
 |---|---|
 | `supabase-swift` | Supabase client (DB, auth, storage, real-time) |
 | `Observation` | State management (`@Observable` macro) |
-| `NavigationStack` | Declarative navigation (built into SwiftUI) |
+| `TabView` + `NavigationStack` | Bottom tab bar with two tabs ("홈", "정보"); `NavigationStack` handles drill-down navigation within each tab (built into SwiftUI) |
 | `AsyncImage` | Async image loading (built into SwiftUI) |
 | `SwiftData` | Local persistence for offline recipe caching (built into iOS 17+) |
 | `firebase-ios-sdk` | User behavior analytics (via Swift Package Manager) |
@@ -382,7 +384,8 @@ The development order prioritizes finalizing the data model and building client-
 | **Phase 8: API Integration & Persistence** | Initialize `supabase-swift` in the app. Build repository layer to fetch recipes and steps from Supabase. Replace mock data with live data in `@Observable` ViewModels. Implement `onAppear`-triggered data fetching. Wire SwiftData persistence: save fetched data locally, display cached data on failure. Implement `.alert()`-based error handling with Korean messages. Implement image loading from Supabase Storage URLs via the custom cache layer. | 5 days | |
 | **Phase 9: Analytics Integration** | Set up Firebase project for iOS. Add `firebase-ios-sdk` via Swift Package Manager. Implement all tracked events (screen_view, search_performed, category_filter_tapped, recipe_viewed, scroll_depth, session tracking). Verify events fire correctly in the Firebase console. | 2 days | |
 | **Phase 10: Accessibility & QA** | Add Korean accessibility labels to all interactive elements. Test with VoiceOver. Verify Dynamic Type text scaling behavior. Color contrast review (WCAG AA). Test on multiple screen sizes (iPhone SE to Pro Max). | 2 days | |
-| **Phase 11: Polish & App Store Submission** | Final UI polish, edge case handling, performance profiling. Create and host Korean-language privacy policy page. Build Info screen with privacy policy link. Prepare Korean App Store listing (title, description, screenshots, keywords, privacy policy URL). Submit to App Store. | 2 days | |
+| **Phase 11: Polish** | Wrap `ContentView` in `TabView` with two tabs ("홈", "정보"). Build `InfoView` (app icon, version, privacy policy link, contact info). Final UI polish and edge case handling. Performance profiling. | 2 days | |
+| **Phase 12: App Store Submission** | Create and host Korean-language privacy policy page. Prepare Korean App Store listing (title, description, screenshots, keywords, privacy policy URL). Submit to App Store. | 1 day | |
 
 **Total estimated duration: ~5–6 weeks** (Phase 0 complete)
 
