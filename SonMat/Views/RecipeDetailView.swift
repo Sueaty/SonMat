@@ -19,14 +19,25 @@ struct RecipeDetailView: View {
             VStack(spacing: 0) {
                 heroSection
                 metadataRow
+                    .padding(.horizontal, 10)
                 descriptionSection
+                    .padding(.horizontal, 5)
                 ingredientsSection
+                    .padding(.horizontal, 5)
                 stepsSection
+                    .padding(.horizontal, 5)
             }
         }
         .ignoresSafeArea(edges: .top)
         .background(Color.appBg)
-        .toolbar(.hidden, for: .navigationBar)
+        .navigationBarBackButtonHidden(true)
+        .toolbarBackground(.hidden, for: .navigationBar)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                backButton
+            }
+        }
+        .background { NavigationGestureEnabler() }
         .onAppear {
             AnalyticsService.logScreenView(screenName: "recipe_detail")
             AnalyticsService.logRecipeViewed(
@@ -110,9 +121,6 @@ struct RecipeDetailView: View {
             .accessibilityHidden(true)
         }
         .frame(height: 300)
-        .overlay(alignment: .topLeading) {
-            backButton
-        }
     }
 
     private var backButton: some View {
@@ -127,8 +135,6 @@ struct RecipeDetailView: View {
                 .clipShape(Circle())
         }
         .accessibilityLabel("뒤로")
-        .padding(.leading, 12)
-        .padding(.top, 56)
     }
 
     // MARK: - Metadata
@@ -276,6 +282,22 @@ struct RecipeDetailView: View {
                     .padding(.leading, 40)
                     .accessibilityLabel("\(step.stepNumber)단계 조리 사진")
             }
+        }
+    }
+}
+
+private struct NavigationGestureEnabler: UIViewControllerRepresentable {
+    func makeUIViewController(context: Context) -> UIViewController {
+        GestureEnablerController()
+    }
+
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
+
+    private class GestureEnablerController: UIViewController {
+        override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+            navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+            navigationController?.interactivePopGestureRecognizer?.delegate = nil
         }
     }
 }
