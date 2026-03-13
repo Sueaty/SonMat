@@ -7,7 +7,7 @@ import SwiftUI
 import SwiftData
 
 struct RecipeListView: View {
-    @State private var viewModel = RecipeListViewModel()
+    @Bindable var viewModel: RecipeListViewModel
     @Environment(\.modelContext) private var modelContext
 
     var body: some View {
@@ -129,6 +129,6 @@ private struct CategoryChipsView: View {
 
 #Preview {
     NavigationStack {
-        RecipeListView()
+        RecipeListView(viewModel: RecipeListViewModel())
     }
 }
