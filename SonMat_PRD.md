@@ -80,18 +80,18 @@ The visual design is defined in two canonical references:
 
 | Role | Hex | Usage |
 |---|---|---|
-| Background | `#FAFAF8` | App-wide background |
-| Card | `#FFFFFF` | Card surfaces (Info screen) |
-| Text Primary | `#1A1A1A` | Titles, body copy |
-| Text Secondary | `#6B6B6B` | Descriptions, subtitles |
-| Text Tertiary | `#9E9E9E` | Timestamps, metadata labels |
-| Accent | `#D4603A` | Category badges, step circles, active tab, CTA elements |
+| Background | `#F7F5F0` | App-wide background |
+| Card | `#FFFFFF` | Card surfaces |
+| Text Primary | `#2B2520` | Titles, body copy |
+| Text Secondary | `#6B6158` | Descriptions, subtitles |
+| Text Tertiary | `#9C9488` | Timestamps, metadata labels |
+| Accent | `#C4533A` | Category badges, step circles, active chip, CTA elements |
 | Accent Light | `#FDF0EB` | Accent badge backgrounds |
-| Accent Dark | `#B8482A` | App icon gradient endpoint |
-| Chip Background | `#F0EFEC` | Inactive category chips, search bar, ingredients card |
-| Chip Active | `#1A1A1A` | Selected category chip background |
+| Accent Dark | `#A8412B` | App icon gradient endpoint |
+| Chip Background | `#EFEBE4` | Inactive category chips, search bar, ingredients card |
+| Chip Active | `#C4533A` | Selected category chip background (accent color) |
 | Chip Active Text | `#FFFFFF` | Selected category chip label |
-| Border / Separator | `#EEEDE9` / `#F0EFEC` | Dividers, card borders |
+| Border / Separator | `#E8E4DC` / `#EFEBE4` | Dividers, card borders |
 | Tab Bar | `#FFFFFF` | Bottom tab bar background |
 | Tab Inactive | `#BABABA` | Unselected tab icon/label |
 
@@ -108,8 +108,8 @@ GmarketSans is a Korean typeface that reinforces the app's identity. It must be 
 
 | Pattern | Description |
 |---|---|
-| Recipe card | Horizontal layout — 80x80px rounded thumbnail (radius 14), title (16pt semibold), category badge (accent on accent-light), total time (tertiary), 1-line description (secondary) |
-| Category chips | Pill shape (radius 20), 7px vertical / 16px horizontal padding. Inactive: chip background. Active: black background, white text |
+| Recipe card | Rounded card (radius 16) with card-colored background and 12pt padding. Horizontal layout — 100x100px rounded thumbnail (radius 14), title (16pt semibold), category badge (accent on accent-light), total time (tertiary), 2-line description (secondary). Cards spaced 10pt apart with 20pt horizontal margins |
+| Category chips | Pill shape (radius 20), 7px vertical / 16px horizontal padding. Inactive: chip background. Active: accent background, white text |
 | Hero image | Full-width, 300pt tall. Gradient overlay: `rgba(0,0,0,0.35)` top -> transparent -> `rgba(0,0,0,0.5)` bottom. Back button: 36pt circle, `rgba(255,255,255,0.2)` with blur backdrop |
 | Metadata row | Three centered columns (준비 시간 / 조리 시간 / 인분), separated by a hairline border |
 | Ingredients card | Rounded card (radius 14), chip-background fill. Each item has a 6pt accent-colored bullet dot |
