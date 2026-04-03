@@ -52,17 +52,17 @@ extension Color {
 
     // MARK: Design system colors
 
-    static let accent            = Color(light: "D4603A", dark: "E07550")
-    static let accentDark        = Color(light: "B8482A", dark: "C45A35")
+    static let accent            = Color(light: "C4533A", dark: "E07550")
+    static let accentDark        = Color(light: "A8412B", dark: "C45A35")
     static let accentLight       = Color(light: "FDF0EB", dark: "3D2318")
     static let cardBg            = Color(light: "FFFFFF", dark: "2A2926")
-    static let appBg             = Color(light: "FAFAF8", dark: "1C1B19")
-    static let textPrimary       = Color(light: "1A1A1A", dark: "F2EDE8")
-    static let textSecondary     = Color(light: "6B6B6B", dark: "A8A8A8")
-    static let textTertiary      = Color(light: "6E6E6E", dark: "9E9E9E")
-    static let chipBg            = Color(light: "F0EFEC", dark: "2C2B28")
+    static let appBg             = Color(light: "F7F5F0", dark: "1C1B19")
+    static let textPrimary       = Color(light: "2B2520", dark: "F2EDE8")
+    static let textSecondary     = Color(light: "6B6158", dark: "A8A8A8")
+    static let textTertiary      = Color(light: "9C9488", dark: "9E9E9E")
+    static let chipBg            = Color(light: "EFEBE4", dark: "2C2B28")
     /// Thin divider inside the ingredients box.
-    static let ingredientDivider = Color(light: "EEEDE9", dark: "3A3936")
+    static let ingredientDivider = Color(light: "E8E4DC", dark: "3A3936")
     /// Text color for the selected category chip (inverts with the chip background).
     static let chipSelectedText  = Color(light: "FFFFFF", dark: "1C1B19")
 }
