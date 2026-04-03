@@ -16,6 +16,7 @@ struct Recipe: Identifiable, Codable, Hashable {
     let cookTime: Int
     let servings: Int
     let ingredients: [String]
+    let coupangProducts: [CoupangProduct]?
     let createdAt: Date
     let updatedAt: Date
 
@@ -30,6 +31,7 @@ struct Recipe: Identifiable, Codable, Hashable {
         case cookTime = "cook_time"
         case servings
         case ingredients
+        case coupangProducts = "coupang_products"
         case createdAt = "created_at"
         case updatedAt = "updated_at"
     }
