@@ -65,6 +65,8 @@ extension Color {
     static let ingredientDivider = Color(light: "E8E4DC", dark: "3A3936")
     /// Text color for the selected category chip (inverts with the chip background).
     static let chipSelectedText  = Color(light: "FFFFFF", dark: "1C1B19")
+    /// Separator between steps.
+    static let separator         = Color(light: "EDE9E1", dark: "3A3936")
 }
 
 extension Font {
