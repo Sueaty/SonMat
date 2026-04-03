@@ -65,6 +65,7 @@ The primary language for all user-facing content and UI is Korean. English local
 | US-8 | Admin | As the admin, I want to edit or delete existing recipes so I can keep the content accurate. | Changes in Supabase reflect in the app upon next screen appearance. |
 | US-9 | Admin | As the admin, I want to see how users interact with the app so I can improve recipes and content. | Analytics dashboard shows screen views, search queries, recipe popularity, and session data. |
 | US-10 | Viewer | As a viewer, I want to access the app's privacy policy so I know how my data is handled. | A privacy policy screen or link is accessible from the app, written in Korean. |
+| US-11 | Viewer | As a viewer, I want to see recommended Coupang products for recipe ingredients so I can quickly purchase what I need. | A horizontally-scrollable product section appears on the detail screen (when products exist) with thumbnails, names, and tappable affiliate links. The section includes the required Coupang Partners disclosure text. |
 
 ---
 
@@ -72,9 +73,8 @@ The primary language for all user-facing content and UI is Korean. English local
 
 ### 6.0 Design System
 
-The visual design is defined in two canonical references:
-- **Interactive mockup:** `sonmat-preview/src/App.jsx` — a React/Vite mockup rendering all screens inside an iPhone frame.
-- **Pencil design file:** Created in Pencil with all 4 screens (Home, Detail, Empty State, Info).
+The visual design is defined in the canonical reference:
+- **Pencil design file:** `SonMat.pen` — created in Pencil with all screens (Home, Detail, Empty State, Info).
 
 #### Color Palette
 
@@ -150,7 +150,8 @@ Tapping a recipe card navigates to the detail screen, which presents the full re
 2. **Title & Metadata** — Dish name (요리명), category, prep time (준비 시간), cook time (조리 시간), and servings (인분).
 3. **Description** — A short paragraph introducing the dish.
 4. **Ingredients (재료)** — A bulleted list of all ingredients with quantities.
-5. **Steps (조리 방법)** — Numbered step-by-step instructions. Each step displays its step number, an optional image (if provided), and the instruction text.
+5. **Coupang Products (추천 상품)** — *(Conditional: only shown when the recipe has linked products.)* A horizontally-scrollable row of product cards. Each card shows a 130×130 thumbnail and the product name. Tapping a card opens the Coupang affiliate link in an external browser. A header row displays "추천 상품" with a "Coupang" badge. Below the product row, the required Coupang Partners disclosure text is shown: "쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다."
+6. **Steps (조리 방법)** — Numbered step-by-step instructions. Each step displays its step number, an optional image (if provided), and the instruction text.
 
 ---
 
@@ -172,6 +173,7 @@ All column names use **snake_case**. Client-side models should map to platform-a
 | cook_time | integer | Cooking time in minutes |
 | servings | integer | Number of servings |
 | ingredients | text[] | PostgreSQL text array of ingredients with quantities (Korean). Each element is one ingredient line (e.g., "소금 1큰술"). |
+| coupang_products | jsonb, nullable | JSON array of Coupang affiliate products. Each element: `{"name": "...", "thumbnail_url": "...", "product_url": "..."}`. NULL when no products are linked. |
 | created_at | timestamptz | Date/time the recipe was created |
 | updated_at | timestamptz | Date/time the recipe was last updated |
 
@@ -294,7 +296,8 @@ All content management is handled through the Supabase dashboard. No custom admi
 | Requirement | Details |
 |---|---|
 | Privacy Policy | A Korean-language privacy policy hosted at a stable URL. Accessible from the app's Info screen. |
-| Policy Content | Discloses: (1) anonymous usage data is collected, (2) purpose is improving the recipe experience, (3) no PII is collected, (4) data processor (Firebase/Google or equivalent). |
+| Policy Content | Discloses: (1) anonymous usage data is collected, (2) purpose is improving the recipe experience, (3) no PII is collected, (4) data processors (Firebase/Google, Supabase, Coupang Partners). |
+| Affiliate Disclosure | The Coupang product section includes the required Coupang Partners disclosure text. The privacy policy page discloses the affiliate relationship and links to Coupang's privacy policy. |
 | App Store / Play Store | Privacy policy URL is required for store submission. |
 | ATT / IDFA (iOS) | Not required for MVP if analytics SDK does not use IDFA. Review if additional tracking is added. |
 | Consent Popup | Not required for anonymous, non-PII analytics under current PIPA guidelines. |
