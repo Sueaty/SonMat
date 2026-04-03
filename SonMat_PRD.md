@@ -104,17 +104,19 @@ The visual design is defined in the canonical reference:
 
 GmarketSans is a Korean typeface that reinforces the app's identity. It must be bundled as a custom font resource.
 
+All multiline text (descriptions, step instructions) uses a consistent line height of 1.4× (`lineSpacing: 5pt` in SwiftUI).
+
 #### Key Visual Patterns
 
 | Pattern | Description |
 |---|---|
-| Recipe card | Rounded card (radius 16) with card-colored background and 12pt padding. Horizontal layout — 100x100px rounded thumbnail (radius 14), title (16pt semibold), category badge (accent on accent-light), total time (tertiary), 2-line description (secondary). Cards spaced 10pt apart with 20pt horizontal margins |
+| Recipe card | Flat style — no card background, 14pt vertical padding, bottom border separator. Horizontal layout — 100x100px rounded thumbnail (radius 14), title (16pt semibold), category badge (accent on accent-light), total time (tertiary), 2-line description (secondary). 20pt horizontal margins |
 | Category chips | Pill shape (radius 20), 7px vertical / 16px horizontal padding. Inactive: chip background. Active: accent background, white text |
-| Hero image | Full-width, 300pt tall. Gradient overlay: `rgba(0,0,0,0.35)` top -> transparent -> `rgba(0,0,0,0.5)` bottom. Back button: 36pt circle, `rgba(255,255,255,0.2)` with blur backdrop |
-| Metadata row | Three centered columns (준비 시간 / 조리 시간 / 인분), separated by a hairline border |
-| Ingredients card | Rounded card (radius 14), chip-background fill. Each item has a 6pt accent-colored bullet dot |
+| Hero image | Full-width, 300pt tall. Gradient overlay: `rgba(0,0,0,0.13)` top -> transparent -> `rgba(0,0,0,0.67)` bottom. Back/bookmark buttons: 36pt circle, `rgba(255,255,255,0.2)` with blur backdrop, positioned below safe area (y: 62pt) |
+| Metadata row | Card background, corner radius 16, three evenly distributed columns (space-around) with icons (timer/flame/person), bottom 1px border |
+| Ingredients card | Rounded card (radius 16), accent-light fill. Each item has an 8pt accent-colored bullet dot, 12pt vertical / 16pt horizontal padding, 1px border separator |
 | Step number | 28pt accent-filled circle, white label (13pt bold) |
-| Step image | Full-width minus 40pt left offset, height 180pt, radius 14 |
+| Step image | Full-width minus 40pt left offset, height 140pt, radius 14 |
 | Search bar | Radius 12, chip background fill, 16pt search icon (tertiary), circular clear button |
 | Tab bar | Height 88pt (including home indicator area), hairline top border. Two tabs: "홈" (Home) and "정보" (Info) |
 | App icon (Info screen) | 72x72pt, radius 18, accent-to-accentDark gradient, "손" character in white |

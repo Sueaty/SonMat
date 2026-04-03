@@ -46,6 +46,7 @@ struct RecipeCardView: View {
                 Text(recipe.description)
                     .font(.gmarket(13))
                     .foregroundStyle(Color.textSecondary)
+                    .lineSpacing(5)
                     .lineLimit(2)
             }
 
@@ -54,9 +55,12 @@ struct RecipeCardView: View {
         .accessibilityElement(children: .ignore)
         .accessibilityLabel("\(recipe.title), \(recipe.category), 총 \(recipe.prepTime + recipe.cookTime)분")
         .accessibilityHint("레시피 상세 보기")
-        .padding(12)
-        .background(Color.cardBg)
-        .clipShape(RoundedRectangle(cornerRadius: 16))
+        .padding(.vertical, 14)
+        .overlay(alignment: .bottom) {
+            Rectangle()
+                .fill(Color.ingredientDivider)
+                .frame(height: 1)
+        }
     }
 }
 

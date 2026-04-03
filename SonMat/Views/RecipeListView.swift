@@ -61,7 +61,7 @@ struct RecipeListView: View {
                 Spacer()
             } else {
                 ScrollView {
-                    LazyVStack(spacing: 10) {
+                    LazyVStack(spacing: 0) {
                         ForEach(viewModel.filteredRecipes) { recipe in
                             NavigationLink(value: recipe) {
                                 RecipeCardView(recipe: recipe)
