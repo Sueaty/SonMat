@@ -13,7 +13,7 @@ struct RecipeListView: View {
     var body: some View {
         VStack(spacing: 0) {
             // Header
-            VStack(alignment: .leading, spacing: 2) {
+            VStack(alignment: .leading, spacing: 4) {
                 Text("손맛")
                     .font(.gmarket(26))
                     .fontWeight(.bold)
@@ -25,7 +25,7 @@ struct RecipeListView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.horizontal, 20)
             .padding(.top, 6)
-            .padding(.bottom, 4)
+            .padding(.bottom, 0)
 
             SearchBarView(text: $viewModel.searchText)
                 .padding(.horizontal, 20)
@@ -61,7 +61,7 @@ struct RecipeListView: View {
                 Spacer()
             } else {
                 ScrollView {
-                    LazyVStack(spacing: 0) {
+                    LazyVStack(spacing: 10) {
                         ForEach(viewModel.filteredRecipes) { recipe in
                             NavigationLink(value: recipe) {
                                 RecipeCardView(recipe: recipe)
@@ -69,6 +69,8 @@ struct RecipeListView: View {
                             .buttonStyle(.plain)
                         }
                     }
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 10)
                 }
             }
         }
@@ -113,7 +115,7 @@ private struct CategoryChipsView: View {
                             .padding(.horizontal, 16)
                             .background(
                                 Capsule()
-                                    .fill(selectedCategory == category ? Color.textPrimary : Color.chipBg)
+                                    .fill(selectedCategory == category ? Color.accent : Color.chipBg)
                             )
                     }
                     .buttonStyle(.plain)

@@ -18,7 +18,7 @@ struct RecipeCardView: View {
                         .fill(Color.chipBg)
                 }
             )
-            .frame(width: 80, height: 80)
+            .frame(width: 100, height: 100)
             .clipShape(RoundedRectangle(cornerRadius: 14))
 
             // Content
@@ -46,7 +46,7 @@ struct RecipeCardView: View {
                 Text(recipe.description)
                     .font(.gmarket(13))
                     .foregroundStyle(Color.textSecondary)
-                    .lineLimit(1)
+                    .lineLimit(2)
             }
 
             Spacer(minLength: 0)
@@ -54,13 +54,9 @@ struct RecipeCardView: View {
         .accessibilityElement(children: .ignore)
         .accessibilityLabel("\(recipe.title), \(recipe.category), 총 \(recipe.prepTime + recipe.cookTime)분")
         .accessibilityHint("레시피 상세 보기")
-        .padding(.horizontal, 20)
-        .padding(.vertical, 14)
-        .overlay(alignment: .bottom) {
-            Rectangle()
-                .fill(Color.chipBg)
-                .frame(height: 0.5)
-        }
+        .padding(12)
+        .background(Color.cardBg)
+        .clipShape(RoundedRectangle(cornerRadius: 16))
     }
 }
 
