@@ -947,12 +947,11 @@
     {
       "type": "frame",
       "id": "H9gTT",
-      "x": 443,
+      "x": 962,
       "y": 0,
-      "name": "Detail Screen",
+      "name": "Detail Screen : Coupang Recommendation",
       "clip": true,
       "width": 397,
-      "height": 1760,
       "fill": "$bg",
       "layout": "vertical",
       "children": [
@@ -1017,7 +1016,7 @@
               "type": "frame",
               "id": "AuTjs",
               "x": 12,
-              "y": 8,
+              "y": 62,
               "name": "backBtn",
               "width": 36,
               "height": 36,
@@ -1087,7 +1086,7 @@
               "type": "frame",
               "id": "nYO37",
               "x": 345,
-              "y": 8,
+              "y": 62,
               "name": "bookmarkBtn",
               "width": 36,
               "height": 36,
@@ -2235,13 +2234,146 @@
               ]
             }
           ]
+        },
+        {
+          "type": "frame",
+          "id": "978cl",
+          "layoutPosition": "absolute",
+          "x": 0,
+          "y": 0,
+          "name": "Status Bar",
+          "width": 397,
+          "height": 62,
+          "fill": "#00000000",
+          "padding": [
+            0,
+            32,
+            8,
+            32
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "end",
+          "children": [
+            {
+              "type": "text",
+              "id": "6qgow",
+              "name": "time",
+              "fill": "$white",
+              "content": "9:41",
+              "fontFamily": "GMarket Sans",
+              "fontSize": 15,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "itBf4",
+              "name": "batteryGroup",
+              "gap": 6,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "KL2PV",
+                  "name": "signal",
+                  "height": 12,
+                  "gap": 1.5,
+                  "alignItems": "end",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 1,
+                      "id": "7m8xO",
+                      "name": "bar1",
+                      "fill": "$white",
+                      "width": 3,
+                      "height": 9
+                    },
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 1,
+                      "id": "inUhH",
+                      "name": "bar2",
+                      "fill": "$white",
+                      "width": 3,
+                      "height": 10
+                    },
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 1,
+                      "id": "aA5cb",
+                      "name": "bar3",
+                      "fill": "$white",
+                      "width": 3,
+                      "height": 12
+                    },
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 1,
+                      "id": "kS19y",
+                      "name": "bar4",
+                      "opacity": 0.3,
+                      "fill": "$white",
+                      "width": 3,
+                      "height": 12
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "N1gCO",
+                  "name": "battery",
+                  "width": 27,
+                  "height": 12,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 3,
+                      "id": "VdNHw",
+                      "x": 0,
+                      "y": 0,
+                      "name": "batteryOutline",
+                      "width": 23,
+                      "height": 12,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "$white"
+                      }
+                    },
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 1.5,
+                      "id": "6u59a",
+                      "x": 1.5,
+                      "y": 1.5,
+                      "name": "batteryFill",
+                      "fill": "$white",
+                      "width": 17,
+                      "height": 9
+                    },
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 1,
+                      "id": "qAiJ3",
+                      "x": 24,
+                      "y": 3.5,
+                      "name": "batteryTip",
+                      "fill": "$white",
+                      "width": 3,
+                      "height": 5
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "type": "frame",
       "id": "uc7cb",
-      "x": 900,
+      "x": 2267,
       "y": 0,
       "name": "Empty State",
       "clip": true,
@@ -2696,7 +2828,7 @@
     {
       "type": "frame",
       "id": "HDm2s",
-      "x": 1350,
+      "x": 2717,
       "y": 0,
       "name": "Info Screen",
       "clip": true,
@@ -3361,7 +3493,7 @@
     {
       "type": "frame",
       "id": "32KkE",
-      "x": 1800,
+      "x": 3167,
       "y": 0,
       "name": "Saved Recipes",
       "clip": true,
@@ -6435,6 +6567,1179 @@
                   "fontFamily": "GMarket Sans",
                   "fontSize": 10,
                   "fontWeight": "500"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "oy4WQ",
+      "x": 535,
+      "y": 0,
+      "name": "Detail Screen",
+      "clip": true,
+      "width": 397,
+      "fill": "$bg",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "pkazC",
+          "name": "Hero Image",
+          "metadata": {
+            "type": "unsplash",
+            "username": "nicsandman20",
+            "link": "https://unsplash.com/@nicsandman20",
+            "author": "Nicholas Ng"
+          },
+          "clip": true,
+          "width": "fill_container",
+          "height": 300,
+          "fill": {
+            "type": "image",
+            "enabled": true,
+            "url": "https://images.unsplash.com/photo-1597246706390-feb1cdded932?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzUwNjAzNDN8&ixlib=rb-4.1.0&q=80&w=1080",
+            "mode": "fill"
+          },
+          "layout": "none",
+          "children": [
+            {
+              "type": "rectangle",
+              "id": "kZKMa",
+              "x": 0,
+              "y": 0,
+              "name": "overlay",
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 180,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "#00000020",
+                    "position": 0
+                  },
+                  {
+                    "color": "#00000000",
+                    "position": 0.3
+                  },
+                  {
+                    "color": "#00000000",
+                    "position": 0.5
+                  },
+                  {
+                    "color": "#000000AA",
+                    "position": 1
+                  }
+                ]
+              },
+              "width": 393,
+              "height": 300
+            },
+            {
+              "type": "frame",
+              "id": "sI3Mf",
+              "x": 12,
+              "y": 62,
+              "name": "backBtn",
+              "width": 36,
+              "height": 36,
+              "fill": "#FFFFFF33",
+              "cornerRadius": 18,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "OIp5J",
+                  "name": "backIcon",
+                  "width": 20,
+                  "height": 20,
+                  "iconFontName": "arrow-left",
+                  "iconFontFamily": "lucide",
+                  "fill": "$white"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "teHhw",
+              "x": 20,
+              "y": 222,
+              "name": "heroBottom",
+              "width": 353,
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "WdgjS",
+                  "name": "catBadgeDetail",
+                  "fill": "$accent",
+                  "cornerRadius": 8,
+                  "padding": [
+                    4,
+                    10
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "8S3t9",
+                      "name": "catBadgeText",
+                      "fill": "$white",
+                      "content": "한식",
+                      "fontFamily": "GMarket Sans",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "gnshw",
+                  "name": "heroTitle",
+                  "fill": "$white",
+                  "content": "된장찌개",
+                  "fontFamily": "GMarket Sans",
+                  "fontSize": 30,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "YHkb5",
+              "x": 345,
+              "y": 62,
+              "name": "bookmarkBtn",
+              "width": 36,
+              "height": 36,
+              "fill": "#FFFFFF33",
+              "cornerRadius": 18,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "qDmYa",
+                  "name": "bookmarkIcon",
+                  "width": 20,
+                  "height": 20,
+                  "iconFontName": "bookmark",
+                  "iconFontFamily": "lucide",
+                  "fill": "$white"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "H0nwQ",
+          "name": "Metadata Row",
+          "width": "fill_container",
+          "fill": "$card",
+          "cornerRadius": 16,
+          "stroke": {
+            "thickness": {
+              "bottom": 1
+            },
+            "fill": "$border"
+          },
+          "padding": [
+            16,
+            0
+          ],
+          "justifyContent": "space_around",
+          "children": [
+            {
+              "type": "frame",
+              "id": "BLgoh",
+              "name": "meta1",
+              "layout": "vertical",
+              "gap": 4,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "c7AU6",
+                  "name": "meta1icon",
+                  "width": 20,
+                  "height": 20,
+                  "iconFontName": "timer",
+                  "iconFontFamily": "lucide",
+                  "fill": "$accent"
+                },
+                {
+                  "type": "text",
+                  "id": "J9l77",
+                  "name": "meta1Label",
+                  "fill": "$text-tertiary",
+                  "content": "준비 시간",
+                  "fontFamily": "GMarket Sans",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "PcaMB",
+                  "name": "meta1Value",
+                  "fill": "$text",
+                  "content": "15분",
+                  "fontFamily": "GMarket Sans",
+                  "fontSize": 16,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "ofPzM",
+              "name": "meta2",
+              "layout": "vertical",
+              "gap": 4,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "xpAZM",
+                  "name": "meta2icon",
+                  "width": 20,
+                  "height": 20,
+                  "iconFontName": "flame",
+                  "iconFontFamily": "lucide",
+                  "fill": "$accent"
+                },
+                {
+                  "type": "text",
+                  "id": "Orfuv",
+                  "name": "meta2Label",
+                  "fill": "$text-tertiary",
+                  "content": "조리 시간",
+                  "fontFamily": "GMarket Sans",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "xEGUo",
+                  "name": "meta2Value",
+                  "fill": "$text",
+                  "content": "25분",
+                  "fontFamily": "GMarket Sans",
+                  "fontSize": 16,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "81Rcx",
+              "name": "meta3",
+              "layout": "vertical",
+              "gap": 4,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "8aids",
+                  "name": "meta3icon",
+                  "width": 20,
+                  "height": 20,
+                  "iconFontName": "users",
+                  "iconFontFamily": "lucide",
+                  "fill": "$accent"
+                },
+                {
+                  "type": "text",
+                  "id": "3V7It",
+                  "name": "meta3Label",
+                  "fill": "$text-tertiary",
+                  "content": "인분",
+                  "fontFamily": "GMarket Sans",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "ARgOq",
+                  "name": "meta3Value",
+                  "fill": "$text",
+                  "content": "2인분",
+                  "fontFamily": "GMarket Sans",
+                  "fontSize": 16,
+                  "fontWeight": "700"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "8bfvm",
+          "name": "Description",
+          "width": "fill_container",
+          "layout": "vertical",
+          "padding": [
+            12,
+            20,
+            4,
+            20
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "gkOqW",
+              "name": "descText",
+              "rotation": -0.04104594835015023,
+              "fill": "$text-secondary",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "구수한 된장과 신선한 채소로 만든 전통 된장찌개. 밥 한 공기가 뚝딱 사라지는 엄마의 손맛을 담았습니다.",
+              "lineHeight": 1.7,
+              "fontFamily": "GMarket Sans",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "ipmwJ",
+          "name": "Ingredients",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 14,
+          "padding": [
+            4,
+            20,
+            12,
+            20
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "BETnk",
+              "name": "ingTitle",
+              "fill": "$text",
+              "content": "재료",
+              "fontFamily": "GMarket Sans",
+              "fontSize": 18,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "sSfmp",
+              "name": "ingBox",
+              "width": "fill_container",
+              "fill": "$accent-light",
+              "cornerRadius": 16,
+              "layout": "vertical",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "7VAgu",
+                  "name": "ing1",
+                  "width": "fill_container",
+                  "stroke": {
+                    "thickness": {
+                      "bottom": 1
+                    },
+                    "fill": "$border"
+                  },
+                  "gap": 10,
+                  "padding": [
+                    12,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "XA8u5",
+                      "name": "dot1",
+                      "fill": "$accent",
+                      "width": 8,
+                      "height": 8
+                    },
+                    {
+                      "type": "text",
+                      "id": "IUakg",
+                      "name": "ingText1",
+                      "fill": "$text",
+                      "content": "된장 2큰술",
+                      "fontFamily": "GMarket Sans",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "VEHaT",
+                  "name": "ing2",
+                  "width": "fill_container",
+                  "stroke": {
+                    "thickness": {
+                      "bottom": 1
+                    },
+                    "fill": "$border"
+                  },
+                  "gap": 10,
+                  "padding": [
+                    12,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "JBqUF",
+                      "name": "dot2",
+                      "fill": "$accent",
+                      "width": 8,
+                      "height": 8
+                    },
+                    {
+                      "type": "text",
+                      "id": "9ErDD",
+                      "name": "ingText2",
+                      "fill": "$text",
+                      "content": "두부 1/2모",
+                      "fontFamily": "GMarket Sans",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "iFrhB",
+                  "name": "ing3",
+                  "width": "fill_container",
+                  "stroke": {
+                    "thickness": {
+                      "bottom": 1
+                    },
+                    "fill": "$border"
+                  },
+                  "gap": 10,
+                  "padding": [
+                    12,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "uNZGD",
+                      "name": "dot3",
+                      "fill": "$accent",
+                      "width": 8,
+                      "height": 8
+                    },
+                    {
+                      "type": "text",
+                      "id": "sVtHf",
+                      "name": "ingText3",
+                      "fill": "$text",
+                      "content": "감자 1개",
+                      "fontFamily": "GMarket Sans",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "lbAqI",
+                  "name": "ing4",
+                  "width": "fill_container",
+                  "stroke": {
+                    "thickness": {
+                      "bottom": 1
+                    },
+                    "fill": "$border"
+                  },
+                  "gap": 10,
+                  "padding": [
+                    12,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "aKJ0B",
+                      "name": "dot4",
+                      "fill": "$accent",
+                      "width": 8,
+                      "height": 8
+                    },
+                    {
+                      "type": "text",
+                      "id": "jG4jq",
+                      "name": "ingText4",
+                      "fill": "$text",
+                      "content": "양파 1/2개",
+                      "fontFamily": "GMarket Sans",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "VDDAG",
+                  "name": "ing5",
+                  "width": "fill_container",
+                  "stroke": {
+                    "thickness": {
+                      "bottom": 1
+                    },
+                    "fill": "$border"
+                  },
+                  "gap": 10,
+                  "padding": [
+                    12,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "F9H8s",
+                      "name": "dot5",
+                      "fill": "$accent",
+                      "width": 8,
+                      "height": 8
+                    },
+                    {
+                      "type": "text",
+                      "id": "hBDlw",
+                      "name": "ingText5",
+                      "fill": "$text",
+                      "content": "애호박 1/3개",
+                      "fontFamily": "GMarket Sans",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "i5k5o",
+                  "name": "ing6",
+                  "width": "fill_container",
+                  "gap": 10,
+                  "padding": [
+                    12,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "T5V6V",
+                      "name": "dot6",
+                      "fill": "$accent",
+                      "width": 8,
+                      "height": 8
+                    },
+                    {
+                      "type": "text",
+                      "id": "LsBsZ",
+                      "name": "ingText6",
+                      "fill": "$text",
+                      "content": "멸치육수 2컵",
+                      "fontFamily": "GMarket Sans",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "O6mkB",
+          "name": "Steps",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 20,
+          "padding": [
+            4,
+            20,
+            20,
+            20
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "lzqcv",
+              "name": "stepsTitle",
+              "fill": "$text",
+              "content": "조리 방법",
+              "fontFamily": "GMarket Sans",
+              "fontSize": 18,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "R9xD3",
+              "name": "step1",
+              "width": "fill_container",
+              "stroke": {
+                "thickness": {
+                  "bottom": 1
+                },
+                "fill": "$separator"
+              },
+              "gap": 12,
+              "padding": [
+                0,
+                0,
+                16,
+                0
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "AHQJ7",
+                  "name": "step1Num",
+                  "width": 28,
+                  "height": 28,
+                  "fill": "$accent",
+                  "cornerRadius": 14,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "rDraX",
+                      "name": "s1nt",
+                      "fill": "$white",
+                      "content": "1",
+                      "fontFamily": "GMarket Sans",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "75Ygx",
+                  "name": "step1Text",
+                  "fill": "$text",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "멸치육수를 준비하고 냄비에 붓고 끓입니다.",
+                  "lineHeight": 1.7,
+                  "fontFamily": "GMarket Sans",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "y7NqZ",
+              "name": "step2",
+              "width": "fill_container",
+              "stroke": {
+                "thickness": {
+                  "bottom": 1
+                },
+                "fill": "$separator"
+              },
+              "layout": "vertical",
+              "gap": 10,
+              "padding": [
+                0,
+                0,
+                16,
+                0
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "poE2B",
+                  "name": "step2Row",
+                  "width": "fill_container",
+                  "gap": 12,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "ceE3e",
+                      "name": "step2Num",
+                      "width": 28,
+                      "height": 28,
+                      "fill": "$accent",
+                      "cornerRadius": 14,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "lnPnM",
+                          "name": "s2nt",
+                          "fill": "$white",
+                          "content": "2",
+                          "fontFamily": "GMarket Sans",
+                          "fontSize": 13,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "iV7tS",
+                      "name": "s2t",
+                      "fill": "$text",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "감자, 양파, 애호박을 먹기 좋은 크기로 썰어 준비합니다.",
+                      "lineHeight": 1.7,
+                      "fontFamily": "GMarket Sans",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "bWCq9",
+                  "name": "step2ImgWrap",
+                  "width": "fill_container",
+                  "padding": [
+                    0,
+                    0,
+                    0,
+                    40
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "psXAf",
+                      "name": "step2Img",
+                      "metadata": {
+                        "type": "unsplash",
+                        "username": "louishansel",
+                        "link": "https://unsplash.com/@louishansel",
+                        "author": "Louis Hansel"
+                      },
+                      "width": "fill_container",
+                      "height": 140,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "https://images.unsplash.com/photo-1578510358708-e2be40c50a09?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzUxMzg3MDh8&ixlib=rb-4.1.0&q=80&w=1080",
+                        "mode": "fill"
+                      },
+                      "cornerRadius": 14
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "81pKy",
+              "name": "step3",
+              "width": "fill_container",
+              "stroke": {
+                "thickness": {
+                  "bottom": 1
+                },
+                "fill": "$separator"
+              },
+              "gap": 12,
+              "padding": [
+                0,
+                0,
+                16,
+                0
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "xyGKB",
+                  "name": "s3n",
+                  "width": 28,
+                  "height": 28,
+                  "fill": "$accent",
+                  "cornerRadius": 14,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "kVeNO",
+                      "name": "s3nt",
+                      "fill": "$white",
+                      "content": "3",
+                      "fontFamily": "GMarket Sans",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "lZdi7",
+                  "name": "s3t",
+                  "fill": "$text",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "육수가 끓으면 된장을 풀어 넣고 감자를 먼저 넣습니다.",
+                  "lineHeight": 1.7,
+                  "fontFamily": "GMarket Sans",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "JHSs4",
+              "name": "step4",
+              "width": "fill_container",
+              "stroke": {
+                "thickness": {
+                  "bottom": 1
+                },
+                "fill": "$separator"
+              },
+              "layout": "vertical",
+              "gap": 10,
+              "padding": [
+                0,
+                0,
+                16,
+                0
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "sCc2m",
+                  "name": "s4row",
+                  "width": "fill_container",
+                  "gap": 12,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "TmGz0",
+                      "name": "s4n",
+                      "width": 28,
+                      "height": 28,
+                      "fill": "$accent",
+                      "cornerRadius": 14,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Rhs6i",
+                          "name": "s4nt",
+                          "fill": "$white",
+                          "content": "4",
+                          "fontFamily": "GMarket Sans",
+                          "fontSize": 13,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "9PPOP",
+                      "name": "s4t",
+                      "fill": "$text",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "감자가 반쯤 익으면 두부, 양파, 애호박을 넣습니다.",
+                      "lineHeight": 1.7,
+                      "fontFamily": "GMarket Sans",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "oxhBR",
+                  "name": "s4img",
+                  "width": "fill_container",
+                  "padding": [
+                    0,
+                    0,
+                    0,
+                    40
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "HTcTy",
+                      "name": "s4imgInner",
+                      "metadata": {
+                        "type": "unsplash",
+                        "username": "brettwharton",
+                        "link": "https://unsplash.com/@brettwharton",
+                        "author": "Brett Wharton"
+                      },
+                      "width": "fill_container",
+                      "height": 140,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "https://images.unsplash.com/photo-1745817095847-625ab76756a1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzUxMzg3MTh8&ixlib=rb-4.1.0&q=80&w=1080",
+                        "mode": "fill"
+                      },
+                      "cornerRadius": 14
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "kIOUS",
+              "name": "step5",
+              "width": "fill_container",
+              "stroke": {
+                "thickness": {
+                  "bottom": 1
+                },
+                "fill": "$separator"
+              },
+              "gap": 12,
+              "padding": [
+                0,
+                0,
+                16,
+                0
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "OdHn9",
+                  "name": "s5n",
+                  "width": 28,
+                  "height": 28,
+                  "fill": "$accent",
+                  "cornerRadius": 14,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Dsyuu",
+                      "name": "s5nt",
+                      "fill": "$white",
+                      "content": "5",
+                      "fontFamily": "GMarket Sans",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "4IZ9C",
+                  "name": "s5t",
+                  "fill": "$text",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "다진 마늘과 청양고추를 넣고 5분간 더 끓입니다.",
+                  "lineHeight": 1.7,
+                  "fontFamily": "GMarket Sans",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "JZxqF",
+              "name": "step6",
+              "width": "fill_container",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "vijCn",
+                  "name": "s6n",
+                  "width": 28,
+                  "height": 28,
+                  "fill": "$accent",
+                  "cornerRadius": 14,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "4sKYS",
+                      "name": "s6nt",
+                      "fill": "$white",
+                      "content": "6",
+                      "fontFamily": "GMarket Sans",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "OVTtb",
+                  "name": "s6t",
+                  "fill": "$text",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "대파를 송송 썰어 올리고 불을 끕니다.",
+                  "lineHeight": 1.7,
+                  "fontFamily": "GMarket Sans",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "345en",
+          "layoutPosition": "absolute",
+          "x": 0,
+          "y": 0,
+          "name": "sb2",
+          "width": 397,
+          "height": 62,
+          "fill": "#00000000",
+          "padding": [
+            0,
+            32,
+            8,
+            32
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "end",
+          "children": [
+            {
+              "type": "text",
+              "id": "36kkh",
+              "name": "time",
+              "fill": "$white",
+              "content": "9:41",
+              "fontFamily": "GMarket Sans",
+              "fontSize": 15,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "x49YP",
+              "name": "batteryGroup",
+              "gap": 6,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "rVNVF",
+                  "name": "signal",
+                  "height": 12,
+                  "gap": 1.5,
+                  "alignItems": "end",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 1,
+                      "id": "y0NYi",
+                      "name": "bar1",
+                      "fill": "$white",
+                      "width": 3,
+                      "height": 9
+                    },
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 1,
+                      "id": "L6Al5",
+                      "name": "bar2",
+                      "fill": "$white",
+                      "width": 3,
+                      "height": 10
+                    },
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 1,
+                      "id": "6hYdE",
+                      "name": "bar3",
+                      "fill": "$white",
+                      "width": 3,
+                      "height": 12
+                    },
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 1,
+                      "id": "wSWZo",
+                      "name": "bar4",
+                      "opacity": 0.3,
+                      "fill": "$white",
+                      "width": 3,
+                      "height": 12
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "LhWOo",
+                  "name": "battery",
+                  "width": 27,
+                  "height": 12,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 3,
+                      "id": "Fc40V",
+                      "x": 0,
+                      "y": 0,
+                      "name": "batteryOutline",
+                      "width": 23,
+                      "height": 12,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "$white"
+                      }
+                    },
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 1.5,
+                      "id": "aLqLA",
+                      "x": 1.5,
+                      "y": 1.5,
+                      "name": "batteryFill",
+                      "fill": "$white",
+                      "width": 17,
+                      "height": 9
+                    },
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 1,
+                      "id": "d94Fu",
+                      "x": 24,
+                      "y": 3.5,
+                      "name": "batteryTip",
+                      "fill": "$white",
+                      "width": 3,
+                      "height": 5
+                    }
+                  ]
                 }
               ]
             }

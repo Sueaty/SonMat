@@ -16,16 +16,14 @@ struct RecipeDetailView: View {
 
     var body: some View {
         ScrollView {
-            VStack(spacing: 0) {
+            VStack(spacing: 5) {
                 heroSection
                 metadataRow
-                    .padding(.horizontal, 10)
+                    .padding(.top, -10)
+                    .zIndex(-1)
                 descriptionSection
-                    .padding(.horizontal, 5)
                 ingredientsSection
-                    .padding(.horizontal, 5)
                 stepsSection
-                    .padding(.horizontal, 5)
             }
         }
         .ignoresSafeArea(edges: .top)
@@ -87,10 +85,10 @@ struct RecipeDetailView: View {
             // Gradient overlay
             LinearGradient(
                 stops: [
-                    .init(color: Color.black.opacity(0.35), location: 0),
-                    .init(color: Color.clear, location: 0.4),
-                    .init(color: Color.clear, location: 0.6),
-                    .init(color: Color.black.opacity(0.5), location: 1)
+                    .init(color: Color.black.opacity(0.13), location: 0),
+                    .init(color: Color.clear, location: 0.3),
+                    .init(color: Color.clear, location: 0.5),
+                    .init(color: Color.black.opacity(0.67), location: 1)
                 ],
                 startPoint: .top,
                 endPoint: .bottom
@@ -110,7 +108,7 @@ struct RecipeDetailView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 8))
 
                 Text(recipe.title)
-                    .font(.gmarket(28))
+                    .font(.gmarket(30))
                     .fontWeight(.bold)
                     .foregroundStyle(.white)
                     .shadow(color: .black.opacity(0.3), radius: 2, y: 1)
@@ -140,25 +138,25 @@ struct RecipeDetailView: View {
     // MARK: - Metadata
 
     private var metadataRow: some View {
-        VStack(spacing: 0) {
-            HStack {
-                metadataItem(label: "준비 시간", value: "\(recipe.prepTime)분")
-                Spacer()
-                metadataItem(label: "조리 시간", value: "\(recipe.cookTime)분")
-                Spacer()
-                metadataItem(label: "인분", value: "\(recipe.servings)인분")
-            }
-            .padding(.vertical, 16)
-            .padding(.horizontal, 20)
-
-            Rectangle()
-                .fill(Color.chipBg)
-                .frame(height: 0.5)
+        HStack(spacing: 0) {
+            metadataItem(icon: "timer", label: "준비 시간", value: "\(recipe.prepTime)분")
+                .frame(maxWidth: .infinity)
+            metadataItem(icon: "flame", label: "조리 시간", value: "\(recipe.cookTime)분")
+                .frame(maxWidth: .infinity)
+            metadataItem(icon: "person.2", label: "인분", value: "\(recipe.servings)인분")
+                .frame(maxWidth: .infinity)
         }
+        .padding(.vertical, 16)
+        .background(Color.cardBg)
+        .clipShape(RoundedRectangle(cornerRadius: 16))
+        .shadow(color: Color.chipBg, radius: 10, x: 5, y: 5)
     }
 
-    private func metadataItem(label: String, value: String) -> some View {
-        VStack(spacing: 2) {
+    private func metadataItem(icon: String, label: String, value: String) -> some View {
+        VStack(spacing: 4) {
+            Image(systemName: icon)
+                .font(.system(size: 18))
+                .foregroundStyle(Color.accent)
             Text(label)
                 .font(.gmarket(11))
                 .foregroundStyle(Color.textTertiary)
@@ -180,13 +178,14 @@ struct RecipeDetailView: View {
             .lineSpacing(5.8)
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.horizontal, 20)
-            .padding(.vertical, 16)
+            .padding(.top, 12)
+            .padding(.bottom, 4)
     }
 
     // MARK: - Ingredients
 
     private var ingredientsSection: some View {
-        VStack(alignment: .leading, spacing: 12) {
+        VStack(alignment: .leading, spacing: 14) {
             Text("재료")
                 .font(.gmarket(18))
                 .fontWeight(.bold)
@@ -198,7 +197,7 @@ struct RecipeDetailView: View {
                     HStack(spacing: 10) {
                         Circle()
                             .fill(Color.accent)
-                            .frame(width: 6, height: 6)
+                            .frame(width: 8, height: 8)
                             .accessibilityHidden(true)
 
                         Text(ingredient)
@@ -207,28 +206,29 @@ struct RecipeDetailView: View {
 
                         Spacer()
                     }
-                    .padding(.vertical, 5)
+                    .padding(.vertical, 12)
+                    .padding(.horizontal, 16)
 
                     if index < recipe.ingredients.count - 1 {
                         Rectangle()
                             .fill(Color.ingredientDivider)
-                            .frame(height: 0.5)
+                            .frame(height: 1)
                     }
                 }
             }
-            .padding(EdgeInsets(top: 9, leading: 16, bottom: 9, trailing: 16))
-            .background(Color.chipBg)
-            .clipShape(RoundedRectangle(cornerRadius: 14))
+            .background(Color.accentLight)
+            .clipShape(RoundedRectangle(cornerRadius: 16))
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.horizontal, 20)
-        .padding(.bottom, 16)
+        .padding(.top, 4)
+        .padding(.bottom, 12)
     }
 
     // MARK: - Steps
 
     private var stepsSection: some View {
-        VStack(alignment: .leading, spacing: 16) {
+        VStack(alignment: .leading, spacing: 20) {
             Text("조리 방법")
                 .font(.gmarket(18))
                 .fontWeight(.bold)
@@ -242,18 +242,19 @@ struct RecipeDetailView: View {
                     .accessibilityLabel("조리 방법 불러오는 중")
             } else {
                 VStack(spacing: 20) {
-                    ForEach(detailViewModel.steps) { step in
-                        stepRow(step)
+                    ForEach(Array(detailViewModel.steps.enumerated()), id: \.element.id) { index, step in
+                        stepRow(step, isLast: index == detailViewModel.steps.count - 1)
                     }
                 }
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.horizontal, 20)
-        .padding(.bottom, 40)
+        .padding(.top, 4)
+        .padding(.bottom, 20)
     }
 
-    private func stepRow(_ step: Step) -> some View {
+    private func stepRow(_ step: Step, isLast: Bool) -> some View {
         VStack(alignment: .leading, spacing: 10) {
             HStack(alignment: .top, spacing: 12) {
                 Text("\(step.stepNumber)")
@@ -277,13 +278,22 @@ struct RecipeDetailView: View {
             if let imageURLString = step.imageURL, let url = URL(string: imageURLString) {
                 CachedAsyncImage(url: url, placeholder: { Color.chipBg })
                     .frame(maxWidth: .infinity)
-                    .frame(height: 180)
+                    .frame(height: 140)
                     .clipShape(RoundedRectangle(cornerRadius: 14))
                     .padding(.leading, 40)
                     .accessibilityLabel("\(step.stepNumber)단계 조리 사진")
             }
         }
+        .padding(.bottom, isLast ? 0 : 16)
+        .overlay(alignment: .bottom) {
+            if !isLast {
+                Rectangle()
+                    .fill(Color.separator)
+                    .frame(height: 1)
+            }
+        }
     }
+
 }
 
 private struct NavigationGestureEnabler: UIViewControllerRepresentable {
