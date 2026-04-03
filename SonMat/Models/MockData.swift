@@ -28,6 +28,12 @@ extension Recipe {
                 "국간장 1작은술",
                 "다진 마늘 1작은술"
             ],
+            coupangProducts: [
+                CoupangProduct(name: "순창 전통 된장 500g", thumbnailURL: "https://via.placeholder.com/130x80", productURL: "https://link.coupang.com/example1"),
+                CoupangProduct(name: "국산 두부 1모", thumbnailURL: "https://via.placeholder.com/130x80", productURL: "https://link.coupang.com/example2"),
+                CoupangProduct(name: "애호박 1개", thumbnailURL: "https://via.placeholder.com/130x80", productURL: "https://link.coupang.com/example3"),
+                CoupangProduct(name: "다진 마늘 200g", thumbnailURL: "https://via.placeholder.com/130x80", productURL: "https://link.coupang.com/example4")
+            ],
             createdAt: Date(timeIntervalSince1970: 1_700_000_000),
             updatedAt: Date(timeIntervalSince1970: 1_700_000_000)
         ),
@@ -52,6 +58,7 @@ extension Recipe {
                 "김 약간",
                 "참깨 약간"
             ],
+            coupangProducts: nil,
             createdAt: Date(timeIntervalSince1970: 1_700_100_000),
             updatedAt: Date(timeIntervalSince1970: 1_700_100_000)
         ),
@@ -79,6 +86,7 @@ extension Recipe {
                 "참깨 약간",
                 "식용유 적당량"
             ],
+            coupangProducts: nil,
             createdAt: Date(timeIntervalSince1970: 1_700_200_000),
             updatedAt: Date(timeIntervalSince1970: 1_700_200_000)
         )

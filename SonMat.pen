@@ -1621,7 +1621,7 @@
                         "author": "Cosmin Ursea"
                       },
                       "width": 130,
-                      "height": 80,
+                      "height": 130,
                       "fill": {
                         "type": "image",
                         "enabled": true,
@@ -1664,7 +1664,7 @@
                         "author": "Jojo Yuen (sharemyfoodd)"
                       },
                       "width": 130,
-                      "height": 80,
+                      "height": 130,
                       "fill": {
                         "type": "image",
                         "enabled": true,
@@ -1707,7 +1707,7 @@
                         "author": "Sandy Millar"
                       },
                       "width": 130,
-                      "height": 80,
+                      "height": 130,
                       "fill": {
                         "type": "image",
                         "enabled": true,
@@ -1750,7 +1750,7 @@
                         "author": "Christina Rumpf"
                       },
                       "width": 130,
-                      "height": 80,
+                      "height": 130,
                       "fill": {
                         "type": "image",
                         "enabled": true,

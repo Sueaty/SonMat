@@ -18,6 +18,7 @@ final class RecipeCache {
     var cookTime: Int
     var servings: Int
     var ingredients: [String]
+    var coupangProducts: [CoupangProduct]?
     var createdAt: Date
     var updatedAt: Date
 
@@ -32,6 +33,7 @@ final class RecipeCache {
         self.cookTime = recipe.cookTime
         self.servings = recipe.servings
         self.ingredients = recipe.ingredients
+        self.coupangProducts = recipe.coupangProducts
         self.createdAt = recipe.createdAt
         self.updatedAt = recipe.updatedAt
     }
@@ -48,6 +50,7 @@ final class RecipeCache {
             cookTime: cookTime,
             servings: servings,
             ingredients: ingredients,
+            coupangProducts: coupangProducts,
             createdAt: createdAt,
             updatedAt: updatedAt
         )

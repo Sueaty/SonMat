@@ -12,6 +12,7 @@ struct RecipeDetailView: View {
     @State private var detailViewModel = RecipeDetailViewModel()
     @State private var firedScrollDepths: Set<Int> = []
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.openURL) private var openURL
     @Environment(\.modelContext) private var modelContext
 
     var body: some View {
@@ -23,6 +24,7 @@ struct RecipeDetailView: View {
                     .zIndex(-1)
                 descriptionSection
                 ingredientsSection
+                coupangSection
                 stepsSection
             }
         }
@@ -223,6 +225,74 @@ struct RecipeDetailView: View {
         .padding(.horizontal, 20)
         .padding(.top, 4)
         .padding(.bottom, 12)
+    }
+
+    // MARK: - Coupang Products
+
+    @ViewBuilder
+    private var coupangSection: some View {
+        if let products = recipe.coupangProducts, !products.isEmpty {
+            VStack(alignment: .leading, spacing: 14) {
+                // Header: 추천 상품 + Coupang badge
+                HStack(spacing: 8) {
+                    Text("추천 상품")
+                        .font(.gmarket(18))
+                        .fontWeight(.bold)
+                        .foregroundStyle(Color.textPrimary)
+                        .accessibilityAddTraits(.isHeader)
+
+                    Text("Coupang")
+                        .font(.gmarket(11))
+                        .fontWeight(.semibold)
+                        .foregroundStyle(Color.accent)
+                        .padding(.vertical, 3)
+                        .padding(.horizontal, 8)
+                        .background(Color.accentLight)
+                        .clipShape(RoundedRectangle(cornerRadius: 6))
+                }
+
+                // Horizontal scrolling product cards
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 10) {
+                        ForEach(products) { product in
+                            Button {
+                                if let url = URL(string: product.productURL) {
+                                    openURL(url)
+                                }
+                            } label: {
+                                VStack(alignment: .leading, spacing: 8) {
+                                    CachedAsyncImage(
+                                        url: URL(string: product.thumbnailURL),
+                                        placeholder: { Color.chipBg }
+                                    )
+                                    .frame(width: 130, height: 130)
+                                    .clipShape(RoundedRectangle(cornerRadius: 12))
+
+                                    Text(product.name)
+                                        .font(.gmarket(12))
+                                        .fontWeight(.medium)
+                                        .foregroundStyle(Color.textPrimary)
+                                        .lineLimit(2)
+                                        .multilineTextAlignment(.leading)
+                                        .frame(width: 130, alignment: .leading)
+                                }
+                            }
+                            .accessibilityLabel("\(product.name), 쿠팡에서 구매하기")
+                        }
+                    }
+                }
+
+                // Disclosure text
+                Text("쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.")
+                    .font(.gmarket(10))
+                    .foregroundStyle(Color.textTertiary)
+                    .lineSpacing(3)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.horizontal, 20)
+            .padding(.top, 4)
+            .padding(.bottom, 12)
+        }
     }
 
     // MARK: - Steps
