@@ -348,7 +348,7 @@ struct RecipeDetailView: View {
             if let imageURLString = step.imageURL, let url = URL(string: imageURLString) {
                 CachedAsyncImage(url: url, placeholder: { Color.chipBg })
                     .frame(maxWidth: .infinity)
-                    .frame(height: 140)
+                    .aspectRatio(7/4, contentMode: .fit)
                     .clipShape(RoundedRectangle(cornerRadius: 14))
                     .padding(.leading, 40)
                     .accessibilityLabel("\(step.stepNumber)단계 조리 사진")
