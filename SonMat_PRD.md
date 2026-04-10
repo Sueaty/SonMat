@@ -116,7 +116,7 @@ All multiline text (descriptions, step instructions) uses a consistent line heig
 | Metadata row | Card background, corner radius 16, three evenly distributed columns (space-around) with icons (timer/flame/person), bottom 1px border |
 | Ingredients card | Rounded card (radius 16), accent-light fill. Each item has an 8pt accent-colored bullet dot, 12pt vertical / 16pt horizontal padding, 1px border separator |
 | Step number | 28pt accent-filled circle, white label (13pt bold) |
-| Step image | Full-width minus 40pt left offset, height 140pt, radius 14 |
+| Step image | Full-width minus 40pt left offset, aspect ratio 7:4, radius 14 |
 | Search bar | Radius 12, chip background fill, 16pt search icon (tertiary), circular clear button |
 | Tab bar | Height 88pt (including home indicator area), hairline top border. Two tabs: "홈" (Home) and "정보" (Info) |
 | App icon (Info screen) | 72x72pt, radius 18, accent-to-accentDark gradient, "손" character in white |
