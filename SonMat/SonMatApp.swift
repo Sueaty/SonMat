@@ -27,6 +27,7 @@ struct SonMatApp: App {
         let schema = Schema([
             RecipeCache.self,
             StepCache.self,
+            SavedRecipeCache.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
