@@ -14,6 +14,19 @@ struct RecipeDetailView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.openURL) private var openURL
     @Environment(\.modelContext) private var modelContext
+    @Query private var savedEntries: [SavedRecipeCache]
+
+    private var isSaved: Bool {
+        savedEntries.contains { $0.recipeID == recipe.id }
+    }
+
+    private func toggleSave() {
+        if let existing = savedEntries.first(where: { $0.recipeID == recipe.id }) {
+            modelContext.delete(existing)
+        } else {
+            modelContext.insert(SavedRecipeCache(recipeID: recipe.id))
+        }
+    }
 
     var body: some View {
         ScrollView {
@@ -35,6 +48,9 @@ struct RecipeDetailView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 backButton
+            }
+            ToolbarItem(placement: .navigationBarTrailing) {
+                bookmarkButton
             }
         }
         .background { NavigationGestureEnabler() }
@@ -135,6 +151,18 @@ struct RecipeDetailView: View {
                 .clipShape(Circle())
         }
         .accessibilityLabel("뒤로")
+    }
+
+    private var bookmarkButton: some View {
+        Button(action: toggleSave) {
+            Image(systemName: isSaved ? "bookmark.fill" : "bookmark")
+                .font(.system(size: 16, weight: .semibold))
+                .foregroundStyle(.white)
+                .frame(width: 36, height: 36)
+                .background(isSaved ? Color.accent : Color.white.opacity(0.2))
+                .clipShape(Circle())
+        }
+        .accessibilityLabel(isSaved ? "저장됨" : "저장하기")
     }
 
     // MARK: - Metadata
