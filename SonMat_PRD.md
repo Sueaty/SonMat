@@ -66,6 +66,7 @@ The primary language for all user-facing content and UI is Korean. English local
 | US-9 | Admin | As the admin, I want to see how users interact with the app so I can improve recipes and content. | Analytics dashboard shows screen views, search queries, recipe popularity, and session data. |
 | US-10 | Viewer | As a viewer, I want to access the app's privacy policy so I know how my data is handled. | A privacy policy screen or link is accessible from the app, written in Korean. |
 | US-11 | Viewer | As a viewer, I want to see recommended Coupang products for recipe ingredients so I can quickly purchase what I need. | A horizontally-scrollable product section appears on the detail screen (when products exist) with thumbnails, names, and tappable affiliate links. The section includes the required Coupang Partners disclosure text. |
+| US-12 | Viewer | As a viewer, I want to save recipes I like so I can quickly find them again. | A bookmark button on the recipe detail screen toggles the save state. Saved recipes appear in a horizontally-scrollable "저장한 레시피" section at the top of the home screen. Saved state persists locally on-device across sessions. |
 
 ---
 
@@ -136,9 +137,10 @@ The app uses a **2-tab bottom navigation bar**. Tab 1 ("홈") contains the Recip
 
 The home screen displays a vertically scrollable list of recipe cards. Each card includes a thumbnail image, recipe title, category tag, and estimated total time. The layout consists of the following top-to-bottom structure:
 
-1. **Search Bar** — Pinned at the top. Placeholder text: "레시피 검색..." (Search recipes...).
-2. **Category Filter Chips** — Horizontally scrollable row of chips below the search bar. The first chip is always "전체" (All), which is selected by default and shows all recipes. The remaining category chips are dynamically populated from the categories present in the database. Tapping a chip filters the list; tapping "전체" resets to show all. Search and category filter work together (i.e., search within the selected category).
-3. **Recipe Card List** — Vertically scrollable cards. Data is fetched automatically each time the screen appears. Images load asynchronously with a placeholder and an in-memory cache layer. If the list is empty, show a friendly Korean empty state with a welcoming message (e.g., "아직 레시피가 없습니다. 곧 맛있는 요리가 추가될 예정이에요!").
+1. **Saved Recipes Section** — Conditional. Shown only when the viewer has saved at least one recipe. A "저장한 레시피" (Saved Recipes) header with a horizontally-scrollable row of compact recipe cards. Each card shows a thumbnail, title, category, and total time. Cards are ordered by most recently saved. Tapping a card navigates to that recipe's detail screen.
+2. **Search Bar** — Placeholder text: "레시피 검색..." (Search recipes...).
+3. **Category Filter Chips** — Horizontally scrollable row of chips below the search bar. The first chip is always "전체" (All), which is selected by default and shows all recipes. The remaining category chips are dynamically populated from the categories present in the database. Tapping a chip filters the list; tapping "전체" resets to show all. Search and category filter work together (i.e., search within the selected category).
+4. **Recipe Card List** — Vertically scrollable cards. Data is fetched automatically each time the screen appears. Images load asynchronously with a placeholder and an in-memory cache layer. If the list is empty, show a friendly Korean empty state with a welcoming message (e.g., "아직 레시피가 없습니다. 곧 맛있는 요리가 추가될 예정이에요!").
 
 ### 6.3 Search
 
@@ -146,7 +148,7 @@ Search is integrated directly into the home screen. As the user types, the recip
 
 ### 6.4 Recipe Detail Screen
 
-Tapping a recipe card navigates to the detail screen, which presents the full recipe in a scrollable layout:
+Tapping a recipe card navigates to the detail screen, which presents the full recipe in a scrollable layout. The navigation bar includes a **bookmark button** (trailing position) that toggles whether the recipe is saved. The button reflects the current saved state visually (filled vs. outlined bookmark icon).
 
 1. **Hero Image** — A large, full-width photo of the finished dish.
 2. **Title & Metadata** — Dish name (요리명), category, prep time (준비 시간), cook time (조리 시간), and servings (인분).
@@ -319,7 +321,6 @@ All content management is handled through the Supabase dashboard. No custom admi
 ## 13. Future Considerations (Post-MVP)
 
 - English localization (UI and recipe content).
-- Favorites / bookmarking for viewers.
 - Sorting options (by prep time, date added, popularity).
 - Push notifications when a new recipe is published.
 - Share recipe via link or social media.

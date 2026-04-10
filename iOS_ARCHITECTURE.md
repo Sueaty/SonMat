@@ -31,7 +31,7 @@ This document covers iOS-specific implementation details. For product requiremen
 ```
 SonMat/
 ├── Models/          # Recipe, Step (Codable structs + CodingKeys)
-├── Persistence/     # SwiftData @Model classes (RecipeCache, StepCache)
+├── Persistence/     # SwiftData @Model classes (RecipeCache, StepCache, SavedRecipeCache)
 ├── ViewModels/      # @Observable view models
 ├── Views/           # SwiftUI views
 ├── Services/        # SupabaseService
@@ -61,6 +61,12 @@ SonMat/
 ### Image Loading
 - Custom `NSCache`-based cache wrapping `AsyncImage`.
 - Image load failure: silent fallback to placeholder (no alert).
+
+### Saved Recipes (Local-Only State)
+- `SavedRecipeCache` is a client-only SwiftData `@Model` — it does **not** mirror a Supabase table. It stores only `recipeID: UUID` and `savedAt: Date`.
+- This is architecturally distinct from `RecipeCache`/`StepCache`, which are cache mirrors of backend data. `SavedRecipeCache` is purely local user preference state.
+- `RecipeDetailView` uses `@Query` to observe saved entries and derives `isSaved` from them. `toggleSave()` either deletes the existing entry or inserts a new one.
+- `RecipeListView` queries saved entries sorted by `savedAt` descending and maps them back to `Recipe` objects via `viewModel.recipes`.
 
 ### Analytics
 - `FirebaseApp.configure()` in `SonMatApp.init`, guarded by plist presence check.
