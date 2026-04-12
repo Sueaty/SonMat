@@ -55,8 +55,13 @@ SonMat/
 - On failure: display SwiftData cache, show `.alert()` with Korean error message.
 
 ### Search
-- `.searchable` modifier on home screen.
+- Custom `SearchBarView` bound to `viewModel.searchText` (no `.searchable` modifier).
 - Client-side real-time filtering with Korean partial syllable/jamo matching.
+
+### RecipeListView Layout
+- `LazyVStack(pinnedViews: [.sectionHeaders])` inside a `ScrollView` is used to implement the sticky search bar behavior.
+- The saved recipes section sits above the `Section` and scrolls away normally. Once the Section header (search bar + category chips) reaches the top of the scroll view, it anchors there.
+- The Section header has `.background(Color.appBg)` to prevent content from showing through when pinned.
 
 ### Image Loading
 - Custom `NSCache`-based cache wrapping `AsyncImage`.
