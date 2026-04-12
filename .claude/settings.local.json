@@ -3,7 +3,8 @@
     "allow": [
       "Bash(gh issue:*)",
       "WebFetch(domain:github.com)",
-      "Bash(xcodebuild -project SonMat.xcodeproj -scheme SonMat -destination 'platform=iOS Simulator,name=iPhone 16' build)"
+      "Bash(xcodebuild -project SonMat.xcodeproj -scheme SonMat -destination 'platform=iOS Simulator,name=iPhone 16' build)",
+      "Bash(xcodebuild -scheme SonMat -destination 'platform=iOS Simulator,name=iPhone 16' build)"
     ]
   }
 }

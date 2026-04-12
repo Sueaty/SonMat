@@ -34,54 +34,59 @@ struct RecipeListView: View {
             .padding(.top, 6)
             .padding(.bottom, 0)
 
-            if !savedRecipes.isEmpty {
-                savedSection
-            }
-
-            SearchBarView(text: $viewModel.searchText)
-                .padding(.horizontal, 20)
-                .padding(.top, 10)
-                .padding(.bottom, 8)
-
-            CategoryChipsView(
-                categories: viewModel.categories,
-                selectedCategory: $viewModel.selectedCategory
-            )
-
-            // Content
             if viewModel.isLoading {
                 Spacer()
                 ProgressView()
                     .accessibilityLabel("레시피 불러오는 중")
                 Spacer()
-            } else if viewModel.recipes.isEmpty {
-                Spacer()
-                ContentUnavailableView(
-                    "아직 레시피가 없습니다",
-                    systemImage: "fork.knife",
-                    description: Text("곧 맛있는 요리가 추가될 예정이에요!")
-                )
-                Spacer()
-            } else if viewModel.filteredRecipes.isEmpty {
-                Spacer()
-                ContentUnavailableView(
-                    "검색 결과 없음",
-                    systemImage: "magnifyingglass",
-                    description: Text("다른 검색어로 다시 시도해 보세요")
-                )
-                Spacer()
             } else {
                 ScrollView {
-                    LazyVStack(spacing: 0) {
-                        ForEach(viewModel.filteredRecipes) { recipe in
-                            NavigationLink(value: recipe) {
-                                RecipeCardView(recipe: recipe)
+                    LazyVStack(spacing: 0, pinnedViews: [.sectionHeaders]) {
+                        if !savedRecipes.isEmpty {
+                            savedSection
+                        }
+
+                        Section {
+                            if viewModel.recipes.isEmpty {
+                                ContentUnavailableView(
+                                    "아직 레시피가 없습니다",
+                                    systemImage: "fork.knife",
+                                    description: Text("곧 맛있는 요리가 추가될 예정이에요!")
+                                )
+                                .padding(.top, 60)
+                            } else if viewModel.filteredRecipes.isEmpty {
+                                ContentUnavailableView(
+                                    "검색 결과 없음",
+                                    systemImage: "magnifyingglass",
+                                    description: Text("다른 검색어로 다시 시도해 보세요")
+                                )
+                                .padding(.top, 60)
+                            } else {
+                                LazyVStack(spacing: 0) {
+                                    ForEach(viewModel.filteredRecipes) { recipe in
+                                        NavigationLink(value: recipe) {
+                                            RecipeCardView(recipe: recipe)
+                                        }
+                                        .buttonStyle(.plain)
+                                    }
+                                }
+                                .padding(.horizontal, 20)
+                                .padding(.bottom, 10)
                             }
-                            .buttonStyle(.plain)
+                        } header: {
+                            VStack(spacing: 0) {
+                                SearchBarView(text: $viewModel.searchText)
+                                    .padding(.horizontal, 20)
+                                    .padding(.top, 10)
+                                    .padding(.bottom, 8)
+                                CategoryChipsView(
+                                    categories: viewModel.categories,
+                                    selectedCategory: $viewModel.selectedCategory
+                                )
+                            }
+                            .background(Color.appBg)
                         }
                     }
-                    .padding(.horizontal, 20)
-                    .padding(.bottom, 10)
                 }
             }
         }
