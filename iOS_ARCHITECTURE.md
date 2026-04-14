@@ -12,7 +12,7 @@ This document covers iOS-specific implementation details. For product requiremen
 | State Management | `@Observable` (Observation framework) | iOS 17+ modern observation |
 | Architecture | MVVM | `Codable` structs for models, `@Observable` ViewModels, SwiftUI Views |
 | Backend SDK | `supabase-swift` | REST queries, auth, storage access |
-| Image Caching | Custom `NSCache`-based layer | In-memory cache wrapping async image loading |
+| Image Caching | Custom `NSCache` + `FileManager` layer | Memory → disk → network 3-tier cache |
 | Local Persistence | SwiftData | `@Model` classes mirror Supabase schema |
 | Navigation | `TabView` + `NavigationStack` | 2-tab bottom bar, drill-down via NavigationStack |
 | Analytics | Firebase Analytics (`firebase-ios-sdk`) | Free tier, event tracking |
@@ -64,7 +64,10 @@ SonMat/
 - The Section header has `.background(Color.appBg)` to prevent content from showing through when pinned.
 
 ### Image Loading
-- Custom `NSCache`-based cache wrapping `AsyncImage`.
+- `CachedAsyncImage` uses a 3-tier lookup: memory (`NSCache`) → disk (`FileManager`) → network (`URLSession`).
+- On network fetch: image saved to memory and written to `Library/Caches/ImageCache/` as JPEG (quality 0.85) via `Task.detached(priority: .background)`.
+- Disk cache filenames are SHA256 hashes of the image URL, ensuring collision-free keys across restarts.
+- `clearDiskCache()` and `diskCacheSize()` are exposed on `ImageCache.shared` for the upcoming InfoView cache management UI (Issue #11).
 - Image load failure: silent fallback to placeholder (no alert).
 
 ### Saved Recipes (Local-Only State)

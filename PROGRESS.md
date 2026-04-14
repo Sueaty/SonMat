@@ -28,6 +28,7 @@
 ## Phase 3: Home Screen UI (mock data)
 - [x] Recipe card view (thumbnail, title, category chip, cook time)
 - [x] `NSCache`-based image cache layer
+- [x] Disk image cache layer (`FileManager`, 3-tier memory → disk → network) — Issue #10
 - [x] `ContentUnavailableView` welcoming empty state (Korean)
 - [x] Recipe list screen wired to mock data
 - [x] GmarketSans Medium font bundled and registered via CoreText
