@@ -1,0 +1,13 @@
+# app-ads.txt — IAB Tech Lab 규격
+#
+# 이 파일은 개발자 도메인 루트에서 접근 가능해야 AdMob이 유효성을 검증합니다.
+# 예: https://sueaty.github.io/app-ads.txt
+#
+# 배포 방법:
+# 1. AdMob 콘솔 → 계정 정보에서 게시자 ID 확인 (pub-XXXXXXXXXXXXXXXXX 형식)
+# 2. 아래 XXXXXXXXXXXXXXXXX를 실제 게시자 ID로 교체
+# 3. 이 파일을 개발자 웹사이트 루트에 배포
+#    - 현재 App Store Connect 지원 URL이 Instagram으로 설정되어 있어
+#      별도 GitHub Pages 사이트 생성 후 URL 변경 필요 (별도 이슈로 처리)
+#
+google.com, pub-5256069577467700, DIRECT, f08c47fec0942fa0

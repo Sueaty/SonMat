@@ -10,6 +10,7 @@
 		8125506D2F5A0E9A00B5A5B7 /* PostgREST in Frameworks */ = {isa = PBXBuildFile; productRef = 8125506C2F5A0E9A00B5A5B7 /* PostgREST */; };
 		8125506F2F5A0E9A00B5A5B7 /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = 8125506E2F5A0E9A00B5A5B7 /* Storage */; };
 		812550722F5A0EEC00B5A5B7 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 812550712F5A0EEC00B5A5B7 /* FirebaseAnalytics */; };
+		8126A6C92F8F0AC100DA3E4D /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 8126A6C82F8F0AC100DA3E4D /* GoogleMobileAds */; };
 		815621FB2F5B42B7001193D3 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 815621FA2F5B42B7001193D3 /* Supabase */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 				8125506F2F5A0E9A00B5A5B7 /* Storage in Frameworks */,
 				8125506D2F5A0E9A00B5A5B7 /* PostgREST in Frameworks */,
 				812550722F5A0EEC00B5A5B7 /* FirebaseAnalytics in Frameworks */,
+				8126A6C92F8F0AC100DA3E4D /* GoogleMobileAds in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +137,7 @@
 				8125506E2F5A0E9A00B5A5B7 /* Storage */,
 				812550712F5A0EEC00B5A5B7 /* FirebaseAnalytics */,
 				815621FA2F5B42B7001193D3 /* Supabase */,
+				8126A6C82F8F0AC100DA3E4D /* GoogleMobileAds */,
 			);
 			productName = SonMat;
 			productReference = 812550132F59FB2700B5A5B7 /* SonMat.app */;
@@ -221,6 +224,7 @@
 			packageReferences = (
 				8125506B2F5A0E9A00B5A5B7 /* XCRemoteSwiftPackageReference "supabase-swift" */,
 				812550702F5A0EEC00B5A5B7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				8126A6C72F8F0AC100DA3E4D /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 812550142F59FB2700B5A5B7 /* Products */;
@@ -426,14 +430,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JPSVCU4H4D;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "손맛";
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				EXCLUDED_SOURCE_FILE_NAMES = "Info.plist";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = SonMat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -456,14 +455,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JPSVCU4H4D;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "손맛";
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				EXCLUDED_SOURCE_FILE_NAMES = "Info.plist";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = SonMat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -607,6 +601,14 @@
 				minimumVersion = 12.10.0;
 			};
 		};
+		8126A6C72F8F0AC100DA3E4D /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 13.2.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -624,6 +626,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 812550702F5A0EEC00B5A5B7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalytics;
+		};
+		8126A6C82F8F0AC100DA3E4D /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8126A6C72F8F0AC100DA3E4D /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
 		};
 		815621FA2F5B42B7001193D3 /* Supabase */ = {
 			isa = XCSwiftPackageProductDependency;

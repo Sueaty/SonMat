@@ -5,11 +5,13 @@
 
 import SwiftUI
 import SwiftData
+import GoogleMobileAds
 
 struct RecipeListView: View {
     @Bindable var viewModel: RecipeListViewModel
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \SavedRecipeCache.savedAt, order: .reverse) private var savedEntries: [SavedRecipeCache]
+    @State private var adLoader = NativeAdLoader()
 
     private var savedRecipes: [Recipe] {
         savedEntries.compactMap { entry in
@@ -63,11 +65,16 @@ struct RecipeListView: View {
                                 .padding(.top, 60)
                             } else {
                                 LazyVStack(spacing: 0) {
-                                    ForEach(viewModel.filteredRecipes) { recipe in
+                                    ForEach(Array(viewModel.filteredRecipes.enumerated()), id: \.element.id) { index, recipe in
                                         NavigationLink(value: recipe) {
                                             RecipeCardView(recipe: recipe)
                                         }
                                         .buttonStyle(.plain)
+
+                                        // 5번째 레시피마다 네이티브 광고 삽입
+                                        if let nativeAd = shouldShowAd(afterIndex: index) {
+                                            NativeAdCardView(nativeAd: nativeAd)
+                                        }
                                     }
                                 }
                                 .padding(.horizontal, 20)
@@ -100,6 +107,7 @@ struct RecipeListView: View {
         }
         .task {
             await viewModel.fetchRecipes(context: modelContext)
+            adLoader.loadAds(count: 3)  // 레시피 최대 15개까지 광고 1개씩 대응
         }
         .alert("오류", isPresented: Binding(
             get: { viewModel.errorMessage != nil },
@@ -136,6 +144,15 @@ struct RecipeListView: View {
         }
         .padding(.top, 12)
         .padding(.bottom, 4)
+    }
+    
+    /// 레시피 5개마다 네이티브 광고를 삽입한 인덱스를 반환한다.
+    /// 광고가 아직 로드되지 않은 위치는 건너뜀.
+    private func shouldShowAd(afterIndex index: Int) -> NativeAd? {
+        guard (index + 1).isMultiple(of: 5) else { return nil }
+        let adIndex = index / 5
+        guard adIndex < adLoader.nativeAds.count else { return nil }
+        return adLoader.nativeAds[adIndex]
     }
 }
 
