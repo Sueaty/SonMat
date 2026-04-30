@@ -1,5 +1,5 @@
 {
-  "version": "2.10",
+  "version": "2.11",
   "children": [
     {
       "type": "frame",
@@ -1100,6 +1100,7 @@
       "name": "Detail Screen : Coupang Recommendation",
       "clip": true,
       "width": 397,
+      "height": 855,
       "fill": "$bg",
       "layout": "vertical",
       "children": [
@@ -1233,7 +1234,7 @@
             {
               "type": "frame",
               "id": "nYO37",
-              "x": 345,
+              "x": 301,
               "y": 62,
               "name": "bookmarkBtn",
               "width": 36,
@@ -1250,6 +1251,31 @@
                   "width": 20,
                   "height": 20,
                   "iconFontName": "bookmark",
+                  "iconFontFamily": "lucide",
+                  "fill": "$white"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "X1xDp",
+              "x": 345,
+              "y": 62,
+              "name": "shareBtn",
+              "width": 36,
+              "height": 36,
+              "fill": "#FFFFFF33",
+              "cornerRadius": 18,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "kVnkC",
+                  "name": "shareIcon",
+                  "width": 20,
+                  "height": 20,
+                  "iconFontName": "share-2",
                   "iconFontFamily": "lucide",
                   "fill": "$white"
                 }
@@ -5663,7 +5689,7 @@
             {
               "type": "frame",
               "id": "YHkb5",
-              "x": 345,
+              "x": 301,
               "y": 62,
               "name": "bookmarkBtn saved",
               "width": 36,
@@ -5680,6 +5706,31 @@
                   "width": 20,
                   "height": 20,
                   "iconFontName": "bookmark-check",
+                  "iconFontFamily": "lucide",
+                  "fill": "$white"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "GgNQm",
+              "x": 345,
+              "y": 62,
+              "name": "shareBtn",
+              "width": 36,
+              "height": 36,
+              "fill": "#FFFFFF33",
+              "cornerRadius": 18,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "mtQqy",
+                  "name": "shareIcon",
+                  "width": 20,
+                  "height": 20,
+                  "iconFontName": "share-2",
                   "iconFontFamily": "lucide",
                   "fill": "$white"
                 }
@@ -6742,6 +6793,843 @@
                   "fontWeight": "500"
                 }
               ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "zzqMq",
+      "x": 1419,
+      "y": 0,
+      "name": "Share Sheet (공유 시트 레이어)",
+      "clip": true,
+      "width": 397,
+      "fill": "#F2F2F7",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "5JJq9",
+          "name": "dimmedBackground",
+          "width": "fill_container",
+          "height": 140,
+          "fill": "#1C1C1E88",
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "Om2hi",
+              "name": "bgHint",
+              "fill": "#FFFFFF66",
+              "content": "손맛 레시피 상세 화면 (배경)",
+              "fontFamily": "GMarket Sans",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "YvdmS",
+          "name": "bottomSheet",
+          "width": "fill_container",
+          "fill": "#F2F2F7",
+          "cornerRadius": [
+            20,
+            20,
+            0,
+            0
+          ],
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "ump11",
+              "name": "handleArea",
+              "width": "fill_container",
+              "height": 22,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 2,
+                  "id": "7a4TB",
+                  "name": "handle",
+                  "fill": "#C7C7CC",
+                  "width": 36,
+                  "height": 4
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "kOfA8",
+              "name": "previewCard",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "gap": 12,
+              "padding": [
+                12,
+                16
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "oRKzq",
+                  "name": "recipeThumb",
+                  "width": 56,
+                  "height": 56,
+                  "fill": {
+                    "type": "image",
+                    "enabled": true,
+                    "url": "icon_1024x1024.png",
+                    "mode": "fill"
+                  },
+                  "cornerRadius": 10,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "18U4M",
+                      "x": 16,
+                      "y": 16,
+                      "name": "thumbIcon",
+                      "enabled": false,
+                      "width": 24,
+                      "height": 24,
+                      "iconFontName": "utensils",
+                      "iconFontFamily": "lucide",
+                      "fill": "$accent"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "EUETz",
+                  "name": "textStack",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 3,
+                  "justifyContent": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "A61fR",
+                      "name": "recipeTitle",
+                      "fill": "#000000",
+                      "content": "된장찌개 레시피",
+                      "fontFamily": "GMarket Sans",
+                      "fontSize": 15,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "VJFdo",
+                      "name": "msgPreview",
+                      "fill": "#8E8E93",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "함께 만들어봐요! 손맛 앱에서 더 많은 집밥 레시피를 만나보세요 🍳",
+                      "lineHeight": 1.4,
+                      "fontFamily": "GMarket Sans",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "rectangle",
+              "id": "Niqp7",
+              "name": "sep1",
+              "fill": "#C6C6C8",
+              "width": "fill_container",
+              "height": 1
+            },
+            {
+              "type": "frame",
+              "id": "1hA87",
+              "name": "appsSection",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "layout": "vertical",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "OA042",
+                  "name": "appsRow",
+                  "width": "fill_container",
+                  "padding": [
+                    12,
+                    8
+                  ],
+                  "justifyContent": "space_around",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "hZWo7",
+                      "name": "kt",
+                      "layout": "vertical",
+                      "gap": 6,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "YWUyy",
+                          "name": "ktBg",
+                          "width": 52,
+                          "height": 52,
+                          "fill": "#FEE500",
+                          "cornerRadius": 12,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon_font",
+                              "id": "oU58I",
+                              "name": "ktIcon",
+                              "width": 26,
+                              "height": 26,
+                              "iconFontName": "message-circle",
+                              "iconFontFamily": "lucide",
+                              "fill": "#3B1E08"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "J21qj",
+                          "name": "ktLabel",
+                          "fill": "#000000",
+                          "content": "카카오톡",
+                          "fontFamily": "GMarket Sans",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "nmytp",
+                      "name": "imsg",
+                      "layout": "vertical",
+                      "gap": 6,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "evoN0",
+                          "name": "imsgBg",
+                          "width": 52,
+                          "height": 52,
+                          "fill": "#34C759",
+                          "cornerRadius": 12,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon_font",
+                              "id": "bEDfF",
+                              "name": "imsgIcon",
+                              "width": 26,
+                              "height": 26,
+                              "iconFontName": "message-square",
+                              "iconFontFamily": "lucide",
+                              "fill": "#FFFFFF"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "EProF",
+                          "name": "imsgLabel",
+                          "fill": "#000000",
+                          "content": "메시지",
+                          "fontFamily": "GMarket Sans",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "dNVTi",
+                      "name": "ln",
+                      "layout": "vertical",
+                      "gap": 6,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "y8S8E",
+                          "name": "lnBg",
+                          "width": 52,
+                          "height": 52,
+                          "fill": "#06C755",
+                          "cornerRadius": 12,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon_font",
+                              "id": "QXfma",
+                              "name": "lnIcon",
+                              "width": 26,
+                              "height": 26,
+                              "iconFontName": "send",
+                              "iconFontFamily": "lucide",
+                              "fill": "#FFFFFF"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "aqCax",
+                          "name": "lnLabel",
+                          "fill": "#000000",
+                          "content": "LINE",
+                          "fontFamily": "GMarket Sans",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Jy8wf",
+                      "name": "insta",
+                      "layout": "vertical",
+                      "gap": 6,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "QLh9o",
+                          "name": "instaBg",
+                          "width": 52,
+                          "height": 52,
+                          "fill": "#E1306C",
+                          "cornerRadius": 12,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon_font",
+                              "id": "0UI31",
+                              "name": "instaIcon",
+                              "width": 26,
+                              "height": 26,
+                              "iconFontName": "camera",
+                              "iconFontFamily": "lucide",
+                              "fill": "#FFFFFF"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "QOfPZ",
+                          "name": "instaLabel",
+                          "fill": "#000000",
+                          "content": "Instagram",
+                          "fontFamily": "GMarket Sans",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ZsMYp",
+                      "name": "more",
+                      "layout": "vertical",
+                      "gap": 6,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "PHzbj",
+                          "name": "moreBg",
+                          "width": 52,
+                          "height": 52,
+                          "fill": "#E5E5EA",
+                          "cornerRadius": 12,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon_font",
+                              "id": "AQ7P0",
+                              "name": "moreIcon",
+                              "width": 26,
+                              "height": 26,
+                              "iconFontName": "ellipsis",
+                              "iconFontFamily": "lucide",
+                              "fill": "#3C3C43"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "yovqq",
+                          "name": "moreLabel",
+                          "fill": "#000000",
+                          "content": "더 보기",
+                          "fontFamily": "GMarket Sans",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "rectangle",
+              "id": "c5hkI",
+              "name": "sep2",
+              "fill": "#F2F2F7",
+              "width": "fill_container",
+              "height": 8
+            },
+            {
+              "type": "frame",
+              "id": "3oSjF",
+              "name": "actionsGroup",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "layout": "vertical",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "0YvU8",
+                  "name": "ar1",
+                  "width": "fill_container",
+                  "stroke": {
+                    "thickness": {
+                      "bottom": 1
+                    },
+                    "fill": "#C6C6C8"
+                  },
+                  "gap": 14,
+                  "padding": [
+                    15,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "aAk43",
+                      "name": "ar1IconBg",
+                      "width": 28,
+                      "height": 28,
+                      "fill": "#007AFF",
+                      "cornerRadius": 6,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "QUBcb",
+                          "name": "ar1Icon",
+                          "width": 16,
+                          "height": 16,
+                          "iconFontName": "link-2",
+                          "iconFontFamily": "lucide",
+                          "fill": "#FFFFFF"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "IGpCv",
+                      "name": "ar1Label",
+                      "fill": "#000000",
+                      "content": "링크 복사",
+                      "fontFamily": "GMarket Sans",
+                      "fontSize": 16,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "2YAIm",
+                  "name": "ar2",
+                  "width": "fill_container",
+                  "stroke": {
+                    "thickness": {
+                      "bottom": 1
+                    },
+                    "fill": "#C6C6C8"
+                  },
+                  "gap": 14,
+                  "padding": [
+                    15,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "BpVce",
+                      "name": "ar2IconBg",
+                      "width": 28,
+                      "height": 28,
+                      "fill": "#34C759",
+                      "cornerRadius": 6,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "znTcD",
+                          "name": "ar2Icon",
+                          "width": 16,
+                          "height": 16,
+                          "iconFontName": "download",
+                          "iconFontFamily": "lucide",
+                          "fill": "#FFFFFF"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "pZgLu",
+                      "name": "ar2Label",
+                      "fill": "#000000",
+                      "content": "이미지 저장",
+                      "fontFamily": "GMarket Sans",
+                      "fontSize": 16,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "P3ozt",
+                  "name": "ar3",
+                  "width": "fill_container",
+                  "gap": 14,
+                  "padding": [
+                    15,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "rZvKS",
+                      "name": "ar3IconBg",
+                      "width": 28,
+                      "height": 28,
+                      "fill": "#5AC8FA",
+                      "cornerRadius": 6,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "1Ib8g",
+                          "name": "ar3Icon",
+                          "width": 16,
+                          "height": 16,
+                          "iconFontName": "wifi",
+                          "iconFontFamily": "lucide",
+                          "fill": "#FFFFFF"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "B4r3D",
+                      "name": "ar3Label",
+                      "fill": "#000000",
+                      "content": "AirDrop으로 공유",
+                      "fontFamily": "GMarket Sans",
+                      "fontSize": 16,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "rectangle",
+              "id": "q2yBB",
+              "name": "sep3",
+              "fill": "#F2F2F7",
+              "width": "fill_container",
+              "height": 8
+            },
+            {
+              "type": "frame",
+              "id": "8bzXU",
+              "name": "cancelBtn",
+              "width": "fill_container",
+              "height": 57,
+              "fill": "#FFFFFF",
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "cSgbt",
+                  "name": "cancelText",
+                  "fill": "#007AFF",
+                  "content": "취소",
+                  "fontFamily": "GMarket Sans",
+                  "fontSize": 17,
+                  "fontWeight": "700"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "8qzmY",
+      "x": 1846,
+      "y": 0,
+      "name": "ShareLink 커스텀 가이드",
+      "width": 300,
+      "fill": "#FFFFFF",
+      "cornerRadius": 16,
+      "stroke": {
+        "thickness": 1,
+        "fill": "#E8E4DC"
+      },
+      "layout": "vertical",
+      "gap": 16,
+      "padding": [
+        24,
+        20
+      ],
+      "children": [
+        {
+          "type": "text",
+          "id": "RKXHL",
+          "name": "annoTitle",
+          "fill": "$accent",
+          "content": "ShareLink 커스텀 구성",
+          "fontFamily": "GMarket Sans",
+          "fontSize": 17,
+          "fontWeight": "700"
+        },
+        {
+          "type": "text",
+          "id": "oGcJK",
+          "name": "annoSubtitle",
+          "fill": "$text-secondary",
+          "textGrowth": "fixed-width",
+          "width": "fill_container",
+          "content": "공유 시트의 각 영역은 아래 SwiftUI API로 제어됩니다.",
+          "lineHeight": 1.5,
+          "fontFamily": "GMarket Sans",
+          "fontSize": 12,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "rectangle",
+          "id": "7HPDz",
+          "name": "divider0",
+          "fill": "$border",
+          "width": "fill_container",
+          "height": 1
+        },
+        {
+          "type": "frame",
+          "id": "ti9Cg",
+          "name": "a1",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 6,
+          "children": [
+            {
+              "type": "frame",
+              "id": "q0FlB",
+              "name": "a1badge",
+              "fill": "#10B98115",
+              "cornerRadius": 6,
+              "padding": [
+                4,
+                10
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "mjK1u",
+                  "name": "a1badgeText",
+                  "fill": "#059669",
+                  "content": "SharePreview(image:)",
+                  "fontFamily": "GMarket Sans",
+                  "fontSize": 11,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "Kxw9x",
+              "name": "a1desc",
+              "fill": "$text-secondary",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "앱 아이콘 이미지. 레시피 썸네일 대신 앱 아이콘을 넘기면 수신자에게 브랜드 인지도를 높이고, 앱 설치로 이어지는 바이럴 효과를 극대화합니다.",
+              "lineHeight": 1.5,
+              "fontFamily": "GMarket Sans",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "MqBO2",
+          "name": "a2",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 6,
+          "children": [
+            {
+              "type": "frame",
+              "id": "WyJDM",
+              "name": "a2badge",
+              "fill": "#8B5CF615",
+              "cornerRadius": 6,
+              "padding": [
+                4,
+                10
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Uyjt7",
+                  "name": "a2badgeText",
+                  "fill": "#7C3AED",
+                  "content": "SharePreview(title:)",
+                  "fontFamily": "GMarket Sans",
+                  "fontSize": 11,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "W1rAc",
+              "name": "a2desc",
+              "fill": "$text-secondary",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "공유 카드 제목. 레시피 이름을 넘겨 수신자가 어떤 레시피인지 바로 알 수 있게 합니다.",
+              "lineHeight": 1.5,
+              "fontFamily": "GMarket Sans",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "nhHxG",
+          "name": "a3",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 6,
+          "children": [
+            {
+              "type": "frame",
+              "id": "pPKEd",
+              "name": "a3badge",
+              "fill": "#FF6B3515",
+              "cornerRadius": 6,
+              "padding": [
+                4,
+                10
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "xlzI1",
+                  "name": "a3badgeText",
+                  "fill": "#D9460F",
+                  "content": "subject:",
+                  "fontFamily": "GMarket Sans",
+                  "fontSize": 11,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "D2eyr",
+              "name": "a3desc",
+              "fill": "$text-secondary",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "이메일·메시지 앱의 제목란. 예: \"손맛 앱에서 된장찌개 레시피를 발견했어요 🍳\"",
+              "lineHeight": 1.5,
+              "fontFamily": "GMarket Sans",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "QVGeh",
+          "name": "a4",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 6,
+          "children": [
+            {
+              "type": "frame",
+              "id": "RYl0c",
+              "name": "a4badge",
+              "fill": "#3B82F615",
+              "cornerRadius": 6,
+              "padding": [
+                4,
+                10
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Wi5HX",
+                  "name": "a4badgeText",
+                  "fill": "#1D4ED8",
+                  "content": "message:",
+                  "fontFamily": "GMarket Sans",
+                  "fontSize": 11,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "Hvyy2",
+              "name": "a4desc",
+              "fill": "$text-secondary",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "미리 채워지는 본문. App Store 링크를 포함해 바이럴 유입을 유도합니다. 예: \"함께 만들어봐요! 👉 [App Store URL]\"",
+              "lineHeight": 1.5,
+              "fontFamily": "GMarket Sans",
+              "fontSize": 12,
+              "fontWeight": "normal"
             }
           ]
         }

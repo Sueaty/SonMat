@@ -2,61 +2,51 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<!-- Bundle 기본 정보 -->
-	<key>CFBundleExecutable</key>
-	<string>$(EXECUTABLE_NAME)</string>
-	<key>CFBundleIdentifier</key>
-	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
-	<key>CFBundleInfoDictionaryVersion</key>
-	<string>6.0</string>
-	<key>CFBundleName</key>
-	<string>$(PRODUCT_NAME)</string>
-	<key>CFBundleDisplayName</key>
-	<string>손맛</string>
-	<key>CFBundlePackageType</key>
-	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
-	<key>CFBundleShortVersionString</key>
-	<string>$(MARKETING_VERSION)</string>
-	<key>CFBundleVersion</key>
-	<string>$(CURRENT_PROJECT_VERSION)</string>
-
-	<!-- App Store 카테고리 -->
-	<key>LSApplicationCategoryType</key>
-	<string>public.app-category.food-and-drink</string>
-
-	<!-- Scene 설정 (SwiftUI @main App lifecycle) -->
-	<key>UIApplicationSceneManifest</key>
-	<dict>
-		<key>UIApplicationSupportsMultipleScenes</key>
-		<false/>
-	</dict>
-	<key>UIApplicationSupportsIndirectInputEvents</key>
-	<true/>
-
-	<!-- 런치 스크린 -->
-	<key>UILaunchScreen</key>
-	<dict/>
-
-	<!-- 지원 방향 -->
-	<key>UISupportedInterfaceOrientations</key>
-	<array>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
-		<string>UIInterfaceOrientationPortrait</string>
-	</array>
-	<key>UISupportedInterfaceOrientations~ipad</key>
-	<array>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
-		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationPortraitUpsideDown</string>
-	</array>
-
-	<key>GADApplicationIdentifier</key>
-	<string>ca-app-pub-5256069577467700~6507873682</string>
-
-	<!-- ATT: 앱 추적 투명성 권한 설명 (iOS 14+, App Store 심사 필수) -->
-	<key>NSUserTrackingUsageDescription</key>
-	<string>더 적합한 광고를 제공하기 위해 기기 광고 식별자에 접근합니다.</string>
+    <key>CFBundleDisplayName</key>
+    <string>손맛</string>
+    <key>CFBundleExecutable</key>
+    <string>$(EXECUTABLE_NAME)</string>
+    <key>CFBundleIdentifier</key>
+    <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+    <key>CFBundleInfoDictionaryVersion</key>
+    <string>6.0</string>
+    <key>CFBundleName</key>
+    <string>$(PRODUCT_NAME)</string>
+    <key>CFBundlePackageType</key>
+    <string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
+    <key>CFBundleShortVersionString</key>
+    <string>$(MARKETING_VERSION)</string>
+    <key>CFBundleVersion</key>
+    <string>$(CURRENT_PROJECT_VERSION)</string>
+    <key>LSApplicationCategoryType</key>
+    <string>public.app-category.food-and-drink</string>
+    <key>UIApplicationSceneManifest</key>
+    <dict>
+        <key>UIApplicationSupportsMultipleScenes</key>
+        <false/>
+        <key>UISceneConfigurations</key>
+        <dict/>
+    </dict>
+    <key>UIApplicationSupportsIndirectInputEvents</key>
+    <true/>
+    <key>UILaunchScreen</key>
+    <dict/>
+    <key>UISupportedInterfaceOrientations</key>
+    <array>
+        <string>UIInterfaceOrientationPortrait</string>
+        <string>UIInterfaceOrientationLandscapeLeft</string>
+        <string>UIInterfaceOrientationLandscapeRight</string>
+    </array>
+    <key>UISupportedInterfaceOrientations~ipad</key>
+    <array>
+        <string>UIInterfaceOrientationPortrait</string>
+        <string>UIInterfaceOrientationPortraitUpsideDown</string>
+        <string>UIInterfaceOrientationLandscapeLeft</string>
+        <string>UIInterfaceOrientationLandscapeRight</string>
+    </array>
+    <key>GADApplicationIdentifier</key>
+    <string>ca-app-pub-5256069577467700~6507873682</string>
+    <key>NSUserTrackingUsageDescription</key>
+    <string>더 적합한 광고를 제공하기 위해 기기 광고 식별자에 접근합니다.</string>
 </dict>
 </plist>
