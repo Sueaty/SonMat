@@ -52,9 +52,8 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
 
-	<!-- AdMob: 앱 ID (TODO: AdMob 콘솔에서 발급받은 실제 ID로 교체) -->
 	<key>GADApplicationIdentifier</key>
-	<string>ca-app-pub-3940256099942544~3347511713</string>
+	<string>ca-app-pub-5256069577467700~6507873682</string>
 
 	<!-- ATT: 앱 추적 투명성 권한 설명 (iOS 14+, App Store 심사 필수) -->
 	<key>NSUserTrackingUsageDescription</key>

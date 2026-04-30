@@ -21,6 +21,15 @@ struct NativeAdCardView: UIViewRepresentable {
     func updateUIView(_ view: SonMatNativeAdView, context: Context) {
         view.populate(with: nativeAd)
     }
+
+    func sizeThatFits(_ proposal: ProposedViewSize, uiView: SonMatNativeAdView, context: Context) -> CGSize? {
+        let width = proposal.width ?? UIScreen.main.bounds.width
+        return uiView.systemLayoutSizeFitting(
+            CGSize(width: width, height: UIView.layoutFittingCompressedSize.height),
+            withHorizontalFittingPriority: .required,
+            verticalFittingPriority: .fittingSizeLevel
+        )
+    }
 }
 
 // MARK: - UIKit 네이티브 광고 뷰
@@ -142,11 +151,12 @@ final class SonMatNativeAdView: NativeAdView {
         addSubview(divider)
 
         NSLayoutConstraint.activate([
-            // 미디어 컨테이너: 왼쪽 100×100, 수직 중앙 정렬
+            // 미디어 컨테이너: 왼쪽 100×100, 상하 14pt 인셋 (RecipeCardView와 동일)
             mediaContainer.leadingAnchor.constraint(equalTo: leadingAnchor),
-            mediaContainer.centerYAnchor.constraint(equalTo: centerYAnchor),
-            mediaContainer.widthAnchor.constraint(equalToConstant: 100),
-            mediaContainer.heightAnchor.constraint(equalToConstant: 100),
+            mediaContainer.topAnchor.constraint(equalTo: topAnchor, constant: 14),
+            mediaContainer.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -14),
+            mediaContainer.widthAnchor.constraint(equalToConstant: 120),
+            mediaContainer.heightAnchor.constraint(equalToConstant: 120),
 
             // 미디어 뷰: 컨테이너를 꽉 채움
             mediaView_.topAnchor.constraint(equalTo: mediaContainer.topAnchor),
@@ -156,12 +166,12 @@ final class SonMatNativeAdView: NativeAdView {
 
             // 헤드라인 레이블
             headlineLabel.topAnchor.constraint(equalTo: mediaContainer.topAnchor, constant: 2),
-            headlineLabel.leadingAnchor.constraint(equalTo: mediaContainer.trailingAnchor, constant: 14),
+            headlineLabel.leadingAnchor.constraint(equalTo: mediaContainer.trailingAnchor, constant: 12),
             headlineLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -4),
 
             // 광고 뱃지 컨테이너
             adBadgeContainer.topAnchor.constraint(equalTo: headlineLabel.bottomAnchor, constant: 6),
-            adBadgeContainer.leadingAnchor.constraint(equalTo: mediaContainer.trailingAnchor, constant: 14),
+            adBadgeContainer.leadingAnchor.constraint(equalTo: mediaContainer.trailingAnchor, constant: 12),
 
             // 광고 뱃지 레이블 (컨테이너 안쪽 패딩)
             adBadgeLabel.topAnchor.constraint(equalTo: adBadgeContainer.topAnchor, constant: 3),
@@ -171,7 +181,7 @@ final class SonMatNativeAdView: NativeAdView {
 
             // 본문 레이블
             bodyLabel.topAnchor.constraint(equalTo: adBadgeContainer.bottomAnchor, constant: 6),
-            bodyLabel.leadingAnchor.constraint(equalTo: mediaContainer.trailingAnchor, constant: 14),
+            bodyLabel.leadingAnchor.constraint(equalTo: mediaContainer.trailingAnchor, constant: 12),
             bodyLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -4),
 
             // AdChoices 아이콘: 우상단 (Google 정책 필수)

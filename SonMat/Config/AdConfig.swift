@@ -13,8 +13,7 @@ enum AdConfig {
     static let bannerAdUnitID = "ca-app-pub-3940256099942544/2934735716"  // Google 공식 테스트 배너
     static let nativeAdUnitID = "ca-app-pub-3940256099942544/3986624511"  // Google 공식 테스트 네이티브
     #else
-    // TODO: AdMob 콘솔에서 발급받은 실제 광고 단위 ID로 교체
-    static let bannerAdUnitID = "YOUR_BANNER_AD_UNIT_ID"
-    static let nativeAdUnitID = "YOUR_NATIVE_AD_UNIT_ID"
+    static let bannerAdUnitID = "ca-app-pub-5256069577467700/2426107539"
+    static let nativeAdUnitID = "ca-app-pub-5256069577467700/2851500010"
     #endif
 }
