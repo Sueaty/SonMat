@@ -9,6 +9,8 @@ import SwiftUI
 import SwiftData
 import CoreText
 import FirebaseCore
+import GoogleMobileAds
+import AppTrackingTransparency
 
 @main
 struct SonMatApp: App {
@@ -20,6 +22,19 @@ struct SonMatApp: App {
         }
         if Bundle.main.path(forResource: "GoogleService-Info", ofType: "plist") != nil {
             FirebaseApp.configure()
+        }
+        // AdMob SDK 초기화 (앱 시작 시 즉시 호출 필요)
+        MobileAds.shared.start()
+    }
+
+    /// ATT(앱 추적 투명성) 권한을 최초 1회만 요청한다.
+    /// iOS 14+ 요구 사항이며, 개인화 광고 여부를 결정한다.
+    private func requestTrackingPermissionIfNeeded() {
+        guard !UserDefaults.standard.bool(forKey: "hasRequestedTracking") else { return }
+        UserDefaults.standard.set(true, forKey: "hasRequestedTracking")
+        Task { @MainActor in
+            try? await Task.sleep(for: .seconds(1))  // 앱 UI가 준비된 후 팝업 표시
+            ATTrackingManager.requestTrackingAuthorization { _ in }
         }
     }
 
@@ -45,8 +60,11 @@ struct SonMatApp: App {
         .modelContainer(sharedModelContainer)
         .onChange(of: scenePhase) { _, phase in
             switch phase {
-            case .active:   AnalyticsService.logSessionStart()
-            case .background: AnalyticsService.logSessionEnd()
+            case .active:
+                AnalyticsService.logSessionStart()
+                requestTrackingPermissionIfNeeded()
+            case .background:
+                AnalyticsService.logSessionEnd()
             default: break
             }
         }

@@ -5,6 +5,7 @@
 
 import SwiftUI
 import SwiftData
+import GoogleMobileAds
 import LinkPresentation
 
 struct RecipeDetailView: View {
@@ -41,6 +42,7 @@ struct RecipeDetailView: View {
                 ingredientsSection
                 coupangSection
                 stepsSection
+                bannerAdSection
             }
         }
         .ignoresSafeArea(edges: .top)
@@ -368,6 +370,17 @@ struct RecipeDetailView: View {
             .padding(.top, 4)
             .padding(.bottom, 12)
         }
+    }
+
+    // MARK: - Banner Ad
+
+    private var bannerAdSection: some View {
+        BannerAdView()
+            .frame(height: 60)
+            .padding(.horizontal, 20)
+            .padding(.top, 8)
+            .padding(.bottom, 12)
+            .accessibilityHidden(true)
     }
 
     // MARK: - Steps

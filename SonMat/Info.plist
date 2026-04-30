@@ -44,5 +44,9 @@
         <string>UIInterfaceOrientationLandscapeLeft</string>
         <string>UIInterfaceOrientationLandscapeRight</string>
     </array>
+    <key>GADApplicationIdentifier</key>
+    <string>ca-app-pub-5256069577467700~6507873682</string>
+    <key>NSUserTrackingUsageDescription</key>
+    <string>더 적합한 광고를 제공하기 위해 기기 광고 식별자에 접근합니다.</string>
 </dict>
 </plist>

@@ -104,6 +104,29 @@
 - [ ] Final UI polish and edge case handling
 - [ ] Performance profiling
 
+## Phase 13: AdMob 광고 통합 — Issue #18
+- [x] **MANUAL:** Xcode → File → Add Package Dependencies → `https://github.com/googleads/swift-package-manager-google-mobile-ads` → GoogleMobileAds 타겟에 추가
+- [x] **MANUAL:** 새로 생성된 Swift 파일 4개를 Xcode 프로젝트 트리에 드래그하여 타겟에 추가:
+  - `SonMat/Config/AdConfig.swift`
+  - `SonMat/Views/BannerAdView.swift`
+  - `SonMat/Views/NativeAdLoader.swift`
+  - `SonMat/Views/NativeAdCardView.swift`
+- [x] `Config/AdConfig.swift` — 광고 단위 ID 상수 (테스트 ID 사전 설정)
+- [x] `Views/BannerAdView.swift` — GADBannerView UIViewRepresentable (적응형 배너)
+- [x] `Views/NativeAdLoader.swift` — @Observable 네이티브 광고 로더
+- [x] `Views/NativeAdCardView.swift` — GADNativeAdView 래퍼 (RecipeCardView 스타일)
+- [x] `SonMatApp.swift` — MobileAds.shared.start() + ATT 권한 요청
+- [x] `RecipeListView.swift` — 레시피 5개마다 네이티브 광고 카드 삽입
+- [x] `RecipeDetailView.swift` — 조리 방법 섹션 이후 배너 광고 배치
+- [x] `project.pbxproj` — GADApplicationIdentifier, NSUserTrackingUsageDescription 추가
+- [x] `docs/app-ads.txt` — IAB Tech Lab 규격 파일 (게시자 ID 입력 후 배포 필요)
+- [ ] **MANUAL:** AdMob 콘솔 → admob.google.com → 앱 등록 → 실제 앱 ID 취득
+- [ ] **MANUAL:** AdMob 콘솔 → 배너 광고 단위 생성 → `AdConfig.bannerAdUnitID` 교체
+- [ ] **MANUAL:** AdMob 콘솔 → 네이티브 광고 단위 생성 → `AdConfig.nativeAdUnitID` 교체
+- [ ] **MANUAL:** `project.pbxproj`의 `INFOPLIST_KEY_GADApplicationIdentifier` 실제 앱 ID로 교체
+- [ ] **MANUAL:** Simulator 빌드 후 테스트 광고 노출 확인
+- [ ] **MANUAL:** `docs/app-ads.txt` 실제 게시자 ID 입력 후 배포
+
 ## Phase 12: App Store Submission
 - [x] Create Korean privacy policy HTML — `appstore/privacy-policy/index.html`
 - [x] Prepare Korean App Store listing draft — `appstore/listing.md`
