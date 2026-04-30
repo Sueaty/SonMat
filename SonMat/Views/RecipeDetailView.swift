@@ -5,12 +5,14 @@
 
 import SwiftUI
 import SwiftData
+import LinkPresentation
 
 struct RecipeDetailView: View {
     let recipe: Recipe
 
     @State private var detailViewModel = RecipeDetailViewModel()
     @State private var firedScrollDepths: Set<Int> = []
+    @State private var shareContent: ShareContent? = nil
     @Environment(\.dismiss) private var dismiss
     @Environment(\.openURL) private var openURL
     @Environment(\.modelContext) private var modelContext
@@ -49,8 +51,9 @@ struct RecipeDetailView: View {
             ToolbarItem(placement: .navigationBarLeading) {
                 backButton
             }
-            ToolbarItem(placement: .navigationBarTrailing) {
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
                 bookmarkButton
+                shareButton
             }
         }
         .background { NavigationGestureEnabler() }
@@ -76,6 +79,10 @@ struct RecipeDetailView: View {
         }
         .task {
             await detailViewModel.fetchSteps(for: recipe.id, context: modelContext)
+        }
+        .sheet(item: $shareContent) { content in
+            ActivityView(text: content.text, title: content.title)
+                .ignoresSafeArea()
         }
         .alert("오류", isPresented: Binding(
             get: { detailViewModel.errorMessage != nil },
@@ -163,6 +170,46 @@ struct RecipeDetailView: View {
                 .clipShape(Circle())
         }
         .accessibilityLabel(isSaved ? "저장됨" : "저장하기")
+    }
+
+    private var shareText: String {
+        let ingredients = recipe.ingredients.joined(separator: ", ")
+        let stepEmojis = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣","🔟"]
+        let steps = detailViewModel.steps
+            .sorted { $0.stepNumber < $1.stepNumber }
+            .enumerated()
+            .map { i, step in
+                let emoji = i < stepEmojis.count ? stepEmojis[i] : "\(i + 1)."
+                return "\(emoji) \(step.instruction)"
+            }
+            .joined(separator: "\n")
+
+        return """
+        [손맛 레시피: \(recipe.title)]
+
+        [🥬 재료]
+        \(ingredients)
+
+        [🍳 조리방법]
+        \(steps)
+
+        손맛 앱에서 더 많은 레시피를 확인해보세요: https://apps.apple.com/app/sonmat/id6760561796
+        """
+    }
+
+    private var shareButton: some View {
+        Button {
+            shareContent = ShareContent(text: shareText, title: recipe.title)
+        } label: {
+            Image(systemName: "square.and.arrow.up")
+                .font(.system(size: 16, weight: .semibold))
+                .foregroundStyle(.white)
+                .frame(width: 36, height: 36)
+                .background(Color.white.opacity(0.2))
+                .clipShape(Circle())
+        }
+        .disabled(detailViewModel.isLoading)
+        .accessibilityLabel("공유하기")
     }
 
     // MARK: - Metadata
@@ -392,6 +439,57 @@ struct RecipeDetailView: View {
         }
     }
 
+}
+
+private struct ShareContent: Identifiable {
+    let id = UUID()
+    let text: String
+    let title: String
+}
+
+private struct ActivityView: UIViewControllerRepresentable {
+    let text: String
+    let title: String
+
+    func makeUIViewController(context: Context) -> UIActivityViewController {
+        let item = RecipeShareItem(text: text, title: title)
+        return UIActivityViewController(activityItems: [item], applicationActivities: nil)
+    }
+
+    func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {}
+}
+
+private final class RecipeShareItem: NSObject, UIActivityItemSource {
+    private let text: String
+    private let title: String
+
+    init(text: String, title: String) {
+        self.text = text
+        self.title = title
+    }
+
+    func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
+        text
+    }
+
+    func activityViewController(_ activityViewController: UIActivityViewController,
+                                 itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
+        text
+    }
+
+    func activityViewController(_ activityViewController: UIActivityViewController,
+                                 subjectForActivityType activityType: UIActivity.ActivityType?) -> String {
+        title
+    }
+
+    func activityViewControllerLinkMetadata(_ activityViewController: UIActivityViewController) -> LPLinkMetadata? {
+        let metadata = LPLinkMetadata()
+        metadata.title = title
+        if let icon = UIImage(named: "AppIconImage") {
+            metadata.iconProvider = NSItemProvider(object: icon)
+        }
+        return metadata
+    }
 }
 
 private struct NavigationGestureEnabler: UIViewControllerRepresentable {

@@ -148,7 +148,7 @@ Search is integrated directly into the home screen. As the user types, the recip
 
 ### 6.4 Recipe Detail Screen
 
-Tapping a recipe card navigates to the detail screen, which presents the full recipe in a scrollable layout. The navigation bar includes a **bookmark button** (trailing position) that toggles whether the recipe is saved. The button reflects the current saved state visually (filled vs. outlined bookmark icon).
+Tapping a recipe card navigates to the detail screen, which presents the full recipe in a scrollable layout. The navigation bar includes two buttons in the trailing position: a **share button** (rightmost) and a **bookmark button** (second from right). The share button opens the iOS system share sheet via `ShareLink`, pre-configured with the recipe title, a viral message body including the App Store link, and the app icon as the share preview image. The bookmark button toggles whether the recipe is saved and reflects the current saved state visually (filled vs. outlined bookmark icon).
 
 1. **Hero Image** — A large, full-width photo of the finished dish.
 2. **Title & Metadata** — Dish name (요리명), category, prep time (준비 시간), cook time (조리 시간), and servings (인분).
@@ -323,7 +323,7 @@ All content management is handled through the Supabase dashboard. No custom admi
 - English localization (UI and recipe content).
 - Sorting options (by prep time, date added, popularity).
 - Push notifications when a new recipe is published.
-- Share recipe via link or social media.
+- ~~Share recipe via link or social media.~~ *(Implemented: share button on detail screen via iOS `ShareLink`)*
 - Dark mode support.
 - Recipe rating or comments from viewers.
 - Dedicated web admin panel for recipe management.
